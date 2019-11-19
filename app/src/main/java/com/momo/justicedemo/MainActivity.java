@@ -1,4 +1,4 @@
-package com.momo.justicecenter;
+package com.momo.justicedemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

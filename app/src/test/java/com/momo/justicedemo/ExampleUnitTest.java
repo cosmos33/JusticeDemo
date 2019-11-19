@@ -1,4 +1,4 @@
-package com.momo.justicecenter;
+package com.momo.justicedemo;
 
 import org.junit.Test;
 

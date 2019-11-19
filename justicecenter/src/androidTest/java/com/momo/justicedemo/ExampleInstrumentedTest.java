@@ -1,4 +1,4 @@
-package com.momo.justicecenter;
+package com.momo.justicedemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.momo.justicecenter", appContext.getPackageName());
+        assertEquals("com.momo.justicecenter2.test", appContext.getPackageName());
     }
 }
