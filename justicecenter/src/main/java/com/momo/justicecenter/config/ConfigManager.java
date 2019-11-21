@@ -4,11 +4,12 @@ import com.momo.justicecenter.network.JusticeRequest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ConfigManager {
     private List<OnConfigLoadedListener> mOnConfigLoadedListeners = new ArrayList<>();
     private boolean isLoading;
-    private ResourceConfig mResourceConfig;
+    private Map<String, Map<String, ResourceConfig>> mResourceConfig;
 
     private static class Holder {
         private static final ConfigManager RES_CONFIG_LOADER = new ConfigManager();
@@ -19,29 +20,29 @@ public class ConfigManager {
     }
 
     public synchronized boolean isConfigLoaded() {
-        return mResourceConfig != null;
+        return mResourceConfig != null && mResourceConfig.size() > 0;
     }
 
     public synchronized boolean isLoadingConfig() {
         return isLoading;
     }
 
-    public synchronized void loadConfig(int sdkVersion, String avatarStyle, OnConfigLoadedListener listener) {
+    public synchronized void loadConfig(OnConfigLoadedListener listener) {
         if (isConfigLoaded()) {
             listener.onConfigLoaded(mResourceConfig);
         } else {
             mOnConfigLoadedListeners.add(listener);
             if (!isLoadingConfig()) {
                 isLoading = true;
-                load(sdkVersion, avatarStyle);
+                load();
             }
         }
     }
 
-    private void load(int sdkVersion, String avatarStyle) {
+    private void load() {
         JusticeRequest.getInstance().configRequst(new JusticeRequest.OnConfigRequestListener() {
             @Override
-            public void onSuccess(ResourceConfig config) {
+            public void onSuccess(Map<String, Map<String, ResourceConfig>> config) {
                 successCallback(config);
             }
 
@@ -60,7 +61,7 @@ public class ConfigManager {
         isLoading = false;
     }
 
-    private synchronized void successCallback(ResourceConfig config) {
+    private synchronized void successCallback(Map<String, Map<String, ResourceConfig>> config) {
         mResourceConfig = config;
         for (OnConfigLoadedListener onConfigLoadedListener : mOnConfigLoadedListeners) {
             onConfigLoadedListener.onConfigLoaded(mResourceConfig);
@@ -70,7 +71,7 @@ public class ConfigManager {
     }
 
     public interface OnConfigLoadedListener {
-        void onConfigLoaded(ResourceConfig resourceConfig);
+        void onConfigLoaded(Map<String, Map<String, ResourceConfig>> resourceConfig);
 
         void onConfigFailed(int code, String msg);
     }

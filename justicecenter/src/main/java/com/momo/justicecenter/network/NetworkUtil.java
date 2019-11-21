@@ -1,10 +1,11 @@
 package com.momo.justicecenter.network;
 
-import android.text.TextUtils;
-
+import com.google.gson.Gson;
+import com.momo.justicecenter.encode.MMRequestEncoder;
+import com.momo.justicecenter.network.bean.OuterResponseBean;
 import com.momo.justicecenter.utils.MLogger;
+import com.momo.justicecenter.utils.SDKUtils;
 
-import java.io.CharArrayReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -66,13 +67,26 @@ public class NetworkUtil {
     }
 
     public void request(String url, Map<String, String> params, final OnRequestCallback callback) {
-        FormBody.Builder builder = new FormBody.Builder();
         if (params != null) {
-            for (Map.Entry<String, String> entry : params.entrySet()) {
-                builder.add(entry.getKey(), entry.getValue());
+            try {
+                params.put("keystoreSha1", SDKUtils.getAppSHA1());
+            } catch (Exception e) {
+                MLogger.e(TAG, e);
             }
         }
-        Request request = new Request.Builder().post(builder.build()).url(url).build();
+        FormBody.Builder builder = new FormBody.Builder();
+//        if (params != null) {
+//            for (Map.Entry<String, String> entry : params.entrySet()) {
+//                builder.add(entry.getKey(), entry.getValue());
+//            }
+//        }
+        final MMRequestEncoder mmRequestEncoder = new MMRequestEncoder();
+        builder.add("msc", mmRequestEncoder.getAesKeyEncoded());
+        builder.add("mzip", mmRequestEncoder.getZippedJson(new Gson().toJson(params)));
+        Request request = new Request.Builder()
+                .post(builder.build())
+                .addHeader("User-Agent", SDKUtils.getUserAgent())
+                .url(url).build();
 
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -87,7 +101,9 @@ public class NetworkUtil {
                 try {
                     byte[] result = response.body().bytes();
                     String resultStr = new String(result, "UTF-8");
-                    callback.onSuccess(resultStr);
+                    OuterResponseBean bean = new Gson().fromJson(resultStr, OuterResponseBean.class);
+                    String unzippedJson = mmRequestEncoder.getUnzippedJson(bean.getData().getMzip());
+                    callback.onSuccess(unzippedJson);
                 } catch (Exception e) {
                     callback.onFailed(-2, e.getLocalizedMessage());
                 }
@@ -96,17 +112,20 @@ public class NetworkUtil {
         });
     }
 
-    public void download(final String url, Map<String, String> params, final String savePath, final OnDownloadCallback callback) {
+    public void download(final String url, final String savePath, final OnDownloadCallback callback) {
         if (hasTask(url, callback)) {
             return;
         }
-        FormBody.Builder builder = new FormBody.Builder();
-        if (params != null) {
-            for (Map.Entry<String, String> entry : params.entrySet()) {
-                builder.add(entry.getKey(), entry.getValue());
-            }
-        }
-        Request request = new Request.Builder().post(builder.build()).url(url).build();
+//        FormBody.Builder builder = new FormBody.Builder();
+//        if (params != null) {
+//            for (Map.Entry<String, String> entry : params.entrySet()) {
+//                builder.add(entry.getKey(), entry.getValue());
+//            }
+//        }
+        Request request = new Request.Builder()
+//                .post(builder.build())
+                .url(url)
+                .build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
