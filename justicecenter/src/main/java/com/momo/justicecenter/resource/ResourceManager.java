@@ -1,6 +1,7 @@
 package com.momo.justicecenter.resource;
 
 import com.momo.justicecenter.config.ConfigManager;
+import com.momo.justicecenter.config.ErrorCode;
 import com.momo.justicecenter.config.ResourceConfig;
 import com.momo.justicecenter.network.JusticeRequest;
 import com.momo.justicecenter.utils.FileHelper;
@@ -18,11 +19,11 @@ public class ResourceManager {
     private static final String TAG = "ResourceManager...";
 
     public interface OnResourceLoadedListener {
-        void onResourceLoadResult(Map<String, Boolean> result);
+        void onResourceLoadResult(Map<String, ResResult> result);
     }
 
     public void loadResource(final Set<String> bussiness, final OnResourceLoadedListener listener) {
-        final Map<String, Boolean> result = new HashMap<>();
+        final Map<String, ResResult> result = new HashMap<>();
         final int size = bussiness.size();
         for (final String b : bussiness) {
             ConfigManager.getInstance().loadConfig(new ConfigManager.OnConfigLoadedListener() {
@@ -30,12 +31,12 @@ public class ResourceManager {
                 public void onConfigLoaded(final Map<String, Map<String, ResourceConfig>> resourceConfig) {
                     ResourceConfig config = getBestResourceConfig(b, resourceConfig);
                     if (config == null) {
-                        configFailed(b, size, result, listener);
+                        configFailed(b, size, result, ErrorCode.CONFIG_ERROR, "config 为空", listener);
                         return;
                     }
                     if (isLocalAvailable(b, config)) {
                         MLogger.d(TAG, b + " 配置拉取成功，使用本地素材");
-                        markResult(size, result, b, true, listener);
+                        markResult(size, result, b, true, ErrorCode.OK, "", listener);
                     } else {
                         download(b, config, size, result, listener);
                     }
@@ -43,24 +44,27 @@ public class ResourceManager {
 
                 @Override
                 public void onConfigFailed(int code, String msg) {
-                    configFailed(b, size, result, listener);
+                    configFailed(b, size, result, ErrorCode.CONFIG_ERROR, msg, listener);
                 }
             });
         }
     }
 
-    private void configFailed(String b, int size, Map<String, Boolean> result, OnResourceLoadedListener listener) {
+    private void configFailed(String b, int size, Map<String, ResResult> result, int ec, String em, OnResourceLoadedListener listener) {
         if (FileHelper.isResourceAvailable(b, null)) {
             MLogger.d(TAG, b + " 配置拉取失败，使用之前版本的素材");
-            markResult(size, result, b, true, listener);
+            markResult(size, result, b, true, ec, em, listener);
         } else {
             MLogger.e(TAG, b + " 配置拉取失败，本地没有可用素材");
-            markResult(size, result, b, false, listener);
+            markResult(size, result, b, false, ec, em, listener);
         }
     }
 
-    public synchronized void markResult(int size, Map<String, Boolean> resultMap, String business, boolean success, OnResourceLoadedListener listener) {
-        resultMap.put(business, success);
+    public synchronized void markResult(int size, Map<String, ResResult> resultMap, String business,
+                                        boolean success, int ec, String em,
+                                        OnResourceLoadedListener listener) {
+        ResResult resResult = ResResult.create(success, ec, em);
+        resultMap.put(business, resResult);
         if (resultMap.size() == size) {
             if (listener != null) {
                 listener.onResourceLoadResult(resultMap);
@@ -68,7 +72,7 @@ public class ResourceManager {
         }
     }
 
-    private void download(final String bussiness, ResourceConfig bestResourceConfig, final int size, final Map<String, Boolean> result, final OnResourceLoadedListener listener) {
+    private void download(final String bussiness, ResourceConfig bestResourceConfig, final int size, final Map<String, ResResult> result, final OnResourceLoadedListener listener) {
         String url = bestResourceConfig.getUrl();
         final File destDir = FileHelper.getResource(bussiness, bestResourceConfig.getMaterialVersion());
         File zipFile = FileHelper.getTempZipResource(bussiness, bestResourceConfig.getMaterialVersion());
@@ -84,10 +88,14 @@ public class ResourceManager {
                             file.delete();
                             checkLocal(bussiness, destDir);
                             MLogger.d(TAG, bussiness + " 下载成功");
-                            markResult(size, result, bussiness, true, listener);
+                            if (unzipResult) {
+                                markResult(size, result, bussiness, true, ErrorCode.OK, "", listener);
+                                return;
+                            }
                         } catch (Exception e) {
-                            markResult(size, result, bussiness, false, listener);
+                            MLogger.e(TAG, "unzip error:" + e);
                         }
+                        markResult(size, result, bussiness, false, ErrorCode.UNZIP_ERROR, "解压异常", listener);
                     }
                 });
 
@@ -102,10 +110,10 @@ public class ResourceManager {
             public void onFailed(int code, String msg) {
                 if (FileHelper.isResourceAvailable(bussiness, null)) {
                     MLogger.d(TAG, bussiness + " 下载失败，使用本地素材");
-                    markResult(size, result, bussiness, true, listener);
+                    markResult(size, result, bussiness, true, ErrorCode.DOWNLOAD_ERROR, "下载失败，使用本地原有素材-" + msg, listener);
                 } else {
                     MLogger.e(TAG, bussiness + " 下载失败，本地素材不可用");
-                    markResult(size, result, bussiness, false, listener);
+                    markResult(size, result, bussiness, false, ErrorCode.DOWNLOAD_ERROR, "下载失败，本地素材不可用-" + msg, listener);
                 }
             }
         });

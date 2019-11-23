@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.momo.justicecenter.JusticeCenter;
+import com.momo.justicecenter.resource.ResResult;
 import com.momo.justicecenter.resource.ResourceManager;
 import com.momo.justicecenter.utils.MLogger;
 import com.momo.justicecenter.utils.SDKUtils;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         business.add("AntiPorn");
         JusticeCenter.preload(business, new ResourceManager.OnResourceLoadedListener() {
             @Override
-            public void onResourceLoadResult(Map<String, Boolean> result) {
+            public void onResourceLoadResult(Map<String, ResResult> result) {
 
             }
         });

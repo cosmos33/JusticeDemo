@@ -83,10 +83,10 @@ public class NetworkUtil {
         final MMRequestEncoder mmRequestEncoder = new MMRequestEncoder();
         builder.add("msc", mmRequestEncoder.getAesKeyEncoded());
         builder.add("mzip", mmRequestEncoder.getZippedJson(new Gson().toJson(params)));
-        Request request = new Request.Builder()
+        final Request request = new Request.Builder()
                 .post(builder.build())
                 .addHeader("User-Agent", SDKUtils.getUserAgent())
-                .url(url).build();
+                .url(url + 11).build();
 
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -99,13 +99,18 @@ public class NetworkUtil {
             @Override
             public void onResponse(Call call, Response response) {
                 try {
+                    int code = response.code();
+                    if (code != 200) {
+                        callback.onFailed(code, "http response is not 200");
+                        return;
+                    }
                     byte[] result = response.body().bytes();
                     String resultStr = new String(result, "UTF-8");
                     OuterResponseBean bean = new Gson().fromJson(resultStr, OuterResponseBean.class);
                     String unzippedJson = mmRequestEncoder.getUnzippedJson(bean.getData().getMzip());
                     callback.onSuccess(unzippedJson);
                 } catch (Exception e) {
-                    callback.onFailed(-2, e.getLocalizedMessage());
+                    callback.onFailed(-1, e.getLocalizedMessage());
                 }
 
             }
@@ -141,6 +146,11 @@ public class NetworkUtil {
                 FileOutputStream fos = null;
                 // 储存下载文件的目录
                 try {
+                    int code = response.code();
+                    if (code != 200) {
+                        errorCallback(url, "http result code is " + code);
+                        return;
+                    }
                     is = response.body().byteStream();
                     long total = response.body().contentLength();
                     File tmpFile = new File(savePath + "_tmp");

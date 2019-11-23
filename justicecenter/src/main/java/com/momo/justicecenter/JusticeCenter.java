@@ -3,6 +3,7 @@ package com.momo.justicecenter;
 import android.app.Application;
 import android.content.Context;
 
+import com.momo.justicecenter.resource.ResResult;
 import com.momo.justicecenter.resource.ResourceManager;
 import com.momo.justicecenter.utils.MLogger;
 
@@ -33,10 +34,10 @@ public class JusticeCenter {
     public static void preload(Set<String> bussiness, final ResourceManager.OnResourceLoadedListener listener) {
         new ResourceManager().loadResource(bussiness, new ResourceManager.OnResourceLoadedListener() {
             @Override
-            public void onResourceLoadResult(Map<String, Boolean> result) {
-                for (Map.Entry<String, Boolean> entry : result.entrySet()) {
+            public void onResourceLoadResult(Map<String, ResResult> result) {
+                for (Map.Entry<String, ResResult> entry : result.entrySet()) {
                     String key = entry.getKey();
-                    Boolean value = entry.getValue();
+                    ResResult value = entry.getValue();
                     MLogger.d(key, "-", value);
                 }
                 if (listener != null) {

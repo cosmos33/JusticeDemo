@@ -70,6 +70,9 @@ public class FileHelper {
     }
 
     public static void deleteFiles(File file) {
+        if (file == null) {
+            return;
+        }
         if (file.exists()) {
             if (file.isDirectory()) {
                 File[] files = file.listFiles();
