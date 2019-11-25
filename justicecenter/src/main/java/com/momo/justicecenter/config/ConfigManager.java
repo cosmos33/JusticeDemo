@@ -39,6 +39,12 @@ public class ConfigManager {
         }
     }
 
+    public synchronized void clearCache() {
+        if (mResourceConfig != null) {
+            mResourceConfig.clear();
+        }
+    }
+
     private void load() {
         JusticeRequest.getInstance().configRequst(new JusticeRequest.OnConfigRequestListener() {
             @Override

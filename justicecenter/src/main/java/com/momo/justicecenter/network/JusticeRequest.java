@@ -6,13 +6,15 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.momo.justicecenter.JusticeCenter;
 import com.momo.justicecenter.config.ResourceConfig;
+import com.momo.justicecenter.utils.MLogger;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 public class JusticeRequest {
-    private static final String CONFIG_URL = "https://cosmos-video-api.immomo.com/video/index/mulResource";
+    public static final String TAG = "Justice_request...";
+    private static final String CONFIG_URL = "http://172.16.224.204:8080/hello";
     private static String mDefaultBusiness;
     private static JusticeRequest sJusticeRequest;
     private NetworkUtil mNetworkUtil;
@@ -69,10 +71,15 @@ public class JusticeRequest {
                         Map<String, Map<String, ResourceConfig>> resourceConfig = gson.fromJson(resultStr,
                                 new TypeToken<Map<String, Map<String, ResourceConfig>>>() {
                                 }.getType());
-                        listener.onSuccess(resourceConfig);
+                        if (resourceConfig != null) {
+                            listener.onSuccess(resourceConfig);
+                            return;
+                        }
                     } catch (Exception e) {
-                        listener.onFailed(-2, "解析失败");
+                        MLogger.e(TAG, e);
                     }
+                    MLogger.e(TAG, "config 返回：", resultStr);
+                    listener.onFailed(-2, "config 解析失败");
                 }
             }
 

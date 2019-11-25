@@ -3,7 +3,7 @@ package com.momo.justicecenter.config;
 public interface ErrorCode {
     int OK = 0;
     /**
-     * config无法解析
+     * config解析出错
      */
     int CONFIG_ERROR = -1;
     /**
@@ -11,7 +11,7 @@ public interface ErrorCode {
      */
     int DOWNLOAD_ERROR = -2;
     /**
-     * 文件问题
+     * 文件问题可能被篡改
      */
     int FILE_ERROR = -3;
     /**

@@ -1,16 +1,20 @@
 package com.momo.justicecenter.resource;
 
+import android.text.TextUtils;
+
 import com.momo.justicecenter.config.ConfigManager;
 import com.momo.justicecenter.config.ErrorCode;
 import com.momo.justicecenter.config.ResourceConfig;
 import com.momo.justicecenter.network.JusticeRequest;
 import com.momo.justicecenter.utils.FileHelper;
+import com.momo.justicecenter.utils.MD5Utils;
 import com.momo.justicecenter.utils.MLogger;
 import com.momo.justicecenter.utils.NumUtil;
 import com.momo.justicecenter.utils.ThreadHelper;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -74,6 +78,13 @@ public class ResourceManager {
 
     private void download(final String bussiness, ResourceConfig bestResourceConfig, final int size, final Map<String, ResResult> result, final OnResourceLoadedListener listener) {
         String url = bestResourceConfig.getUrl();
+        final String md5 = bestResourceConfig.getMd5();
+        if (TextUtils.isEmpty(url) || TextUtils.isEmpty(md5)) {
+            MLogger.e(TAG, bussiness + " config url md5 为空");
+            ConfigManager.getInstance().clearCache();
+            markResult(size, result, bussiness, false, ErrorCode.CONFIG_ERROR, bussiness + " config 不完整", listener);
+            return;
+        }
         final File destDir = FileHelper.getResource(bussiness, bestResourceConfig.getMaterialVersion());
         File zipFile = FileHelper.getTempZipResource(bussiness, bestResourceConfig.getMaterialVersion());
         JusticeRequest.getInstance().download(url, zipFile.getPath(), new JusticeRequest.OnDownloadListener() {
@@ -84,6 +95,12 @@ public class ResourceManager {
                     public void run() {
                         try {
                             FileHelper.deleteFiles(destDir);
+                            String fileMD5 = MD5Utils.getFileMD5(file);
+                            if (!TextUtils.equals(fileMD5, md5)) {
+                                MLogger.e(TAG, " md5 不一致，", md5, ", file is ", fileMD5);
+                                markResult(size, result, bussiness, false, ErrorCode.FILE_ERROR, bussiness + " md5 校验失败", listener);
+                                return;
+                            }
                             boolean unzipResult = FileHelper.unzip(file.getAbsolutePath(), destDir.getAbsolutePath());
                             file.delete();
                             checkLocal(bussiness, destDir);
@@ -144,20 +161,16 @@ public class ResourceManager {
     }
 
     private ResourceConfig getBestResourceConfig(String bussiness, Map<String, Map<String, ResourceConfig>> resourceConfig) {
+        if (resourceConfig == null) {
+            return null;
+        }
         Map<String, ResourceConfig> map = resourceConfig.get(bussiness);
-        ResourceConfig config = null;
-        for (Map.Entry<String, ResourceConfig> entry : map.entrySet()) {
-            if (config == null) {
-                config = entry.getValue();
-            } else {
-                int i = NumUtil.parseInt(config.getMaterialVersion());
-                int i2 = NumUtil.parseInt(entry.getValue().getMaterialVersion());
-                if (i2 > i) {
-                    config = entry.getValue();
-                }
+        if (map != null) {
+            for (Map.Entry<String, ResourceConfig> entry : map.entrySet()) {
+                return entry.getValue();
             }
         }
-        return config;
+        return null;
     }
 
 }
