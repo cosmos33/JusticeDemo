@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
     signingConfigs {
         debug {
             keyAlias 'cosmos'
@@ -10,10 +9,12 @@ android {
             storePassword 'mmtest'
         }
     }
+    compileSdkVersion rootProject.compileVersion
+
     defaultConfig {
+        minSdkVersion rootProject.minVersion
+        targetSdkVersion rootProject.targetVersion
         applicationId "com.momo.justicecenter"
-        minSdkVersion 21
-        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
