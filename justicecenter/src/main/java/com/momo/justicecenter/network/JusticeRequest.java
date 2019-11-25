@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.momo.justicecenter.JusticeCenter;
 import com.momo.justicecenter.config.ResourceConfig;
-import com.momo.justicecenter.utils.MLogger;
 
 import java.io.File;
 import java.util.HashMap;
@@ -72,14 +71,14 @@ public class JusticeRequest {
                                 }.getType());
                         listener.onSuccess(resourceConfig);
                     } catch (Exception e) {
-                        listener.onFailed(-1, "解析失败");
+                        listener.onFailed(-2, "解析失败");
                     }
                 }
             }
 
             @Override
             public void onFailed(int code, String msg) {
-                listener.onFailed(-2, msg);
+                listener.onFailed(code, msg);
             }
         });
     }

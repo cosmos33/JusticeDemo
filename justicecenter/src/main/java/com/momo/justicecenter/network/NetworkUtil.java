@@ -1,5 +1,7 @@
 package com.momo.justicecenter.network;
 
+import android.nfc.Tag;
+
 import com.google.gson.Gson;
 import com.momo.justicecenter.encode.MMRequestEncoder;
 import com.momo.justicecenter.network.bean.OuterResponseBean;
@@ -66,7 +68,7 @@ public class NetworkUtil {
         return sNetworkUtil;
     }
 
-    public void request(String url, Map<String, String> params, final OnRequestCallback callback) {
+    public void request(final String url, Map<String, String> params, final OnRequestCallback callback) {
         if (params != null) {
             try {
                 params.put("keystoreSha1", SDKUtils.getAppSHA1());
@@ -86,7 +88,7 @@ public class NetworkUtil {
         final Request request = new Request.Builder()
                 .post(builder.build())
                 .addHeader("User-Agent", SDKUtils.getUserAgent())
-                .url(url + 11).build();
+                .url(url).build();
 
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -101,6 +103,7 @@ public class NetworkUtil {
                 try {
                     int code = response.code();
                     if (code != 200) {
+                        MLogger.e(TAG, " http response code is ", code, ",url:", url);
                         callback.onFailed(code, "http response is not 200");
                         return;
                     }
@@ -110,7 +113,7 @@ public class NetworkUtil {
                     String unzippedJson = mmRequestEncoder.getUnzippedJson(bean.getData().getMzip());
                     callback.onSuccess(unzippedJson);
                 } catch (Exception e) {
-                    callback.onFailed(-1, e.getLocalizedMessage());
+                    callback.onFailed(-2, e.getLocalizedMessage());
                 }
 
             }

@@ -56,7 +56,7 @@ public class FileHelper {
                         if (files[0].isDirectory()) {
                             return files[0];
                         }
-                    } else {
+                    } else if (files.length >= 1){
                         for (File f : files) {
                             deleteFiles(f);
                         }
