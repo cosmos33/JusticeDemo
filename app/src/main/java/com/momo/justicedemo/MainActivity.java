@@ -1,6 +1,7 @@
 package com.momo.justicedemo;
 
 import android.Manifest;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -60,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         JusticeCenter.asyncNewJustice(businesses, new OnAsyncJusticeCallback() {
             @Override
             public void onCreated(Justice justice, List<String> successBusiness) {
-                String predict = justice.predict(BitmapFactory.decodeFile("/sdcard/ht.jpg"));
+                Bitmap image = BitmapFactory.decodeFile("/sdcard/ht.jpg");
+                String predict = justice.predict(image);
                 MLogger.d(TAG, "predict result:", predict);
             }
 
