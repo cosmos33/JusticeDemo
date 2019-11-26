@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class JusticeRequest {
     public static final String TAG = "Justice_request...";
-    private static final String CONFIG_URL = "http://172.16.224.204:8080/hello";
+    private static final String CONFIG_URL = "https://cosmos-video-api.immomo.com/video/index/mulResource";
     private static String mDefaultBusiness;
     private static JusticeRequest sJusticeRequest;
     private NetworkUtil mNetworkUtil;

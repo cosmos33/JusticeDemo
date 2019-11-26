@@ -109,9 +109,9 @@ public class NetworkUtil {
                     }
                     byte[] result = response.body().bytes();
                     String resultStr = new String(result, "UTF-8");
-//                    OuterResponseBean bean = new Gson().fromJson(resultStr, OuterResponseBean.class);
-//                    String unzippedJson = mmRequestEncoder.getUnzippedJson(bean.getData().getMzip());
-                    callback.onSuccess(resultStr);
+                    OuterResponseBean bean = new Gson().fromJson(resultStr, OuterResponseBean.class);
+                    String unzippedJson = mmRequestEncoder.getUnzippedJson(bean.getData().getMzip());
+                    callback.onSuccess(unzippedJson);
                 } catch (Exception e) {
                     callback.onFailed(-2, e.getLocalizedMessage());
                 }
