@@ -1,23 +1,29 @@
 package com.momo.justicedemo;
 
 import android.Manifest;
+import android.graphics.BitmapFactory;
+import android.nfc.Tag;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 
+import com.immomo.justice.Justice;
 import com.momo.justicecenter.JusticeCenter;
+import com.momo.justicecenter.callback.OnAsyncJusticeCallback;
+import com.momo.justicecenter.callback.OnPreloadCallback;
 import com.momo.justicecenter.resource.ResResult;
-import com.momo.justicecenter.resource.ResourceManager;
 import com.momo.justicecenter.utils.MLogger;
 import com.momo.justicecenter.utils.SDKUtils;
 
-import java.io.File;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity...";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +45,28 @@ public class MainActivity extends AppCompatActivity {
         Set<String> business = new HashSet<>();
         business.add("AntiSpam");
         business.add("AntiPorn");
-        JusticeCenter.preload(business, new ResourceManager.OnResourceLoadedListener() {
+        JusticeCenter.preload(business, new OnPreloadCallback() {
             @Override
-            public void onResourceLoadResult(Map<String, ResResult> result) {
+            public void onPreloadCallback(Map<String, ResResult> resultMap) {
 
+            }
+        });
+    }
+
+    public void asyncConstruct(View view) {
+        Set<String> businesses = new HashSet<>();
+        businesses.add("AntiSpam");
+        businesses.add("AntiPorn");
+        JusticeCenter.asyncNewJustice(businesses, new OnAsyncJusticeCallback() {
+            @Override
+            public void onCreated(Justice justice, List<String> successBusiness) {
+                String predict = justice.predict(BitmapFactory.decodeFile("/sdcard/ht.jpg"));
+                MLogger.d(TAG, "predict result:", predict);
+            }
+
+            @Override
+            public void onFailed(String em) {
+                MLogger.e(TAG, "asyncConstruct", em);
             }
         });
     }

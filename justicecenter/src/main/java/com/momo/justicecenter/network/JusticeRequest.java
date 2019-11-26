@@ -15,17 +15,12 @@ import java.util.Map;
 public class JusticeRequest {
     public static final String TAG = "Justice_request...";
     private static final String CONFIG_URL = "https://cosmos-video-api.immomo.com/video/index/mulResource";
-    private static String mDefaultBusiness;
+    private static final String SPAM_BUSINESS_MARK = "spam";
     private static JusticeRequest sJusticeRequest;
     private NetworkUtil mNetworkUtil;
     private ThreadLocal<Gson> mGsonThreadLocal;
 
     private JusticeRequest() {
-        mDefaultBusiness =
-                "spam_4," +
-                        "spam_1," +
-                        "AntiSpam," +
-                        "AntiPorn";
         mNetworkUtil = NetworkUtil.getInstance();
         mGsonThreadLocal = new ThreadLocal<Gson>() {
             @Nullable
@@ -60,7 +55,7 @@ public class JusticeRequest {
     public void configRequst(final OnConfigRequestListener listener) {
         Map<String, String> map = new HashMap<>();
 //        map.put("resourceName", String.valueOf(JusticeCenter.SDK_VERSION_CODE));
-        map.put("resourceMark", mDefaultBusiness);
+        map.put("resourceMark", SPAM_BUSINESS_MARK);
         map.put("appId", String.valueOf(JusticeCenter.getAPPID()));
         mNetworkUtil.request(CONFIG_URL, map, new OnRequestCallback() {
             @Override

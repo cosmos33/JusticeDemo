@@ -1,7 +1,10 @@
 package com.momo.justicecenter.utils;
 
+import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
+
+import com.momo.justicecenter.JusticeCenter;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -22,7 +25,11 @@ public class FileHelper {
             "~/"
     };
     static {
-        ROOT_PATH = Environment.getExternalStorageDirectory().getPath() + File.separator + ".justice";
+        Context context = JusticeCenter.getContext();
+        if (context == null) {
+            throw new IllegalStateException("you should call JusticeCenter.init(context,appId) first");
+        }
+        ROOT_PATH = context.getFilesDir() + File.separator + "justice";
     }
 
     public static String getBusinessDir(String business) {

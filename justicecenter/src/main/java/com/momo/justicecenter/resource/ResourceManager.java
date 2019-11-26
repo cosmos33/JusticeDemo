@@ -9,12 +9,10 @@ import com.momo.justicecenter.network.JusticeRequest;
 import com.momo.justicecenter.utils.FileHelper;
 import com.momo.justicecenter.utils.MD5Utils;
 import com.momo.justicecenter.utils.MLogger;
-import com.momo.justicecenter.utils.NumUtil;
 import com.momo.justicecenter.utils.ThreadHelper;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
