@@ -19,7 +19,9 @@ import java.util.Set;
 
 public class ResourceManager {
     private static final String TAG = "ResourceManager...";
-
+    public static final int RETRY_TIME = 3;
+    public static final int RETRY_DELAY = 2000;
+    public int currentRetryTime = 0;
     public interface OnResourceLoadedListener {
         void onResourceLoadResult(Map<String, ResResult> result);
     }

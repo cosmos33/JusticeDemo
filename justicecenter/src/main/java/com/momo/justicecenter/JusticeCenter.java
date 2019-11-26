@@ -25,7 +25,6 @@ public class JusticeCenter {
     private static final String TAG = "JusticeCenter...";
     private static String sAPPID;
     private static Context sContext;
-    private static ResourceManager sResourceManager;
 
     public static void init(Application application, String appId) {
         sContext = application;
@@ -44,19 +43,40 @@ public class JusticeCenter {
         if (bussiness == null || bussiness.size() == 0) {
             throw new IllegalArgumentException("business must be not empty");
         }
-        if (sResourceManager == null) {
-            sResourceManager = new ResourceManager();
-        }
+        ResourceManager sResourceManager = new ResourceManager();
+        loadResource(bussiness, listener, sResourceManager);
+    }
+
+    private static void loadResource(final Set<String> bussiness, final OnPreloadCallback listener, final ResourceManager sResourceManager) {
         sResourceManager.loadResource(bussiness, new ResourceManager.OnResourceLoadedListener() {
             @Override
             public void onResourceLoadResult(Map<String, ResResult> result) {
+                boolean isAllSuccess = true;
                 for (Map.Entry<String, ResResult> entry : result.entrySet()) {
                     String key = entry.getKey();
                     ResResult value = entry.getValue();
                     MLogger.d(key, "-", value);
+                    isAllSuccess &= value.isOK;
                 }
-                if (listener != null) {
-                    listener.onPreloadCallback(result);
+                if (!isAllSuccess && sResourceManager.currentRetryTime < ResourceManager.RETRY_TIME) {
+                    sResourceManager.currentRetryTime++;
+                    ThreadHelper.getInstance().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                MLogger.d(TAG, "正在准备重试", sResourceManager.currentRetryTime);
+                                Thread.sleep(ResourceManager.RETRY_DELAY);
+                            } catch (InterruptedException e) {
+                            }
+                            MLogger.d(TAG, "正在重试", sResourceManager.currentRetryTime);
+                            loadResource(bussiness, listener, sResourceManager);
+                        }
+                    });
+                } else {
+                    MLogger.d(TAG, "结果回调 ", sResourceManager.currentRetryTime);
+                    if (listener != null) {
+                        listener.onPreloadCallback(result);
+                    }
                 }
             }
         });
@@ -66,7 +86,7 @@ public class JusticeCenter {
         preload(bussiness, new OnPreloadCallback() {
             @Override
             public void onPreloadCallback(Map<String, ResResult> result) {
-                MLogger.d(TAG, " resources preloaded ,current thread ", Thread.currentThread().getName());
+                MLogger.d(TAG, " resources preload callback ,current thread ", Thread.currentThread().getName());
                 final List<Pair<String, String>> businessesWithDirs = new ArrayList<>();
                 final List<String> successedBusiness = new ArrayList<>();
                 for (Map.Entry<String, ResResult> entry : result.entrySet()) {
