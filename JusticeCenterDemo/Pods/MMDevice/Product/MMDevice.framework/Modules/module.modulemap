@@ -1,0 +1,6 @@
+framework module MMDevice {
+  umbrella header "MMDevice-umbrella.h"
+
+  export *
+  module * { export * }
+}

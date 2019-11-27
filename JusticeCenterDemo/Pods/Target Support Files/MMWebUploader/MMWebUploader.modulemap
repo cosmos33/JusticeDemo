@@ -1,0 +1,6 @@
+framework module MMWebUploader {
+  umbrella header "MMWebUploader-umbrella.h"
+
+  export *
+  module * { export * }
+}

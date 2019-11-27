@@ -1,0 +1,50 @@
+PODS:
+  - CocoaAsyncSocket (7.6.3)
+  - GCDWebServer/Core (3.5.3)
+  - MCCSecret (1.0.0)
+  - MMDevice (1.0.0)
+  - MMJusticeCenter (1.0.0):
+    - MCCSecret
+    - MMDevice
+    - MMNNetwork
+    - ZipArchive
+  - MMNNetwork (1.0.4)
+  - MMWebUploader (1.0.5):
+    - GCDWebServer/Core
+    - ZipArchive
+  - ZipArchive (1.4.0)
+
+DEPENDENCIES:
+  - CocoaAsyncSocket
+  - MMJusticeCenter (from `../`)
+  - MMWebUploader (= 1.0.5)
+
+SPEC REPOS:
+  https://git.wemomo.com/next/Specs.git:
+    - MCCSecret
+    - MMNNetwork
+    - MMWebUploader
+  https://github.com/cocoapods/specs.git:
+    - CocoaAsyncSocket
+    - GCDWebServer
+    - ZipArchive
+  https://github.com/cosmos33/MMSpecs.git:
+    - MMDevice
+
+EXTERNAL SOURCES:
+  MMJusticeCenter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  GCDWebServer: c0ab22c73e1b84f358d1e2f74bf6afd1c60829f2
+  MCCSecret: 5658f66290969726586eddbdfe45e27731dbfa17
+  MMDevice: 8fdf446c7aedc2243918eabcf66f1c84f362931e
+  MMJusticeCenter: 5962d738ecf3efd59fe473e8ecef725e120d5520
+  MMNNetwork: f6aa79151f47169f29a7af7e90705ad0d8337b1d
+  MMWebUploader: a9759bb689bb35c1839caf78f1276427a40f6626
+  ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
+
+PODFILE CHECKSUM: 6a2c13ae3381e55cc6490990a8f829d3e5ed62cd
+
+COCOAPODS: 1.7.4

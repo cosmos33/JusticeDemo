@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-JusticeCenterDemo/Pods-JusticeCenterDemo-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
+${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework
+${BUILT_PRODUCTS_DIR}/MMNNetwork/MMNNetwork.framework
+${BUILT_PRODUCTS_DIR}/MMWebUploader/MMWebUploader.framework
+${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework

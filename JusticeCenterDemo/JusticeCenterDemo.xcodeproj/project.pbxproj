@@ -1,0 +1,739 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39D228D928101CDC4507F9E8 /* Pods_JusticeCenterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4ADAA15C09934F92703B0A /* Pods_JusticeCenterDemo.framework */; };
+		A00099A23829D923AC4CD869 /* Pods_JusticeCenterDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0D51F89851226A90D2E78B /* Pods_JusticeCenterDemoUITests.framework */; };
+		BA50F9F289C3F9654A6775CB /* Pods_JusticeCenterDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D600DBCE0D0957876C069B4C /* Pods_JusticeCenterDemoTests.framework */; };
+		FA83840A2383A9BA008E575D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8384092383A9BA008E575D /* AppDelegate.m */; };
+		FA83840D2383A9BA008E575D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA83840C2383A9BA008E575D /* SceneDelegate.m */; };
+		FA8384132383A9BB008E575D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8384112383A9BB008E575D /* Main.storyboard */; };
+		FA8384152383A9BC008E575D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8384142383A9BC008E575D /* Assets.xcassets */; };
+		FA8384182383A9BC008E575D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8384162383A9BC008E575D /* LaunchScreen.storyboard */; };
+		FA83841B2383A9BC008E575D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA83841A2383A9BC008E575D /* main.m */; };
+		FA8384252383A9BD008E575D /* JusticeCenterDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8384242383A9BD008E575D /* JusticeCenterDemoTests.m */; };
+		FA8384302383A9BD008E575D /* JusticeCenterDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA83842F2383A9BD008E575D /* JusticeCenterDemoUITests.m */; };
+		FA8384CA2386353F008E575D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8384C92386353F008E575D /* RootViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA8384212383A9BD008E575D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA8383FD2383A9BA008E575D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA8384042383A9BA008E575D;
+			remoteInfo = JusticeCenterDemo;
+		};
+		FA83842C2383A9BD008E575D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA8383FD2383A9BA008E575D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA8384042383A9BA008E575D;
+			remoteInfo = JusticeCenterDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		53DA66A2053DA7982385DB4F /* Pods-JusticeCenterDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JusticeCenterDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-JusticeCenterDemoUITests/Pods-JusticeCenterDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		650099CDBF21CF3D3D968A94 /* Pods-JusticeCenterDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JusticeCenterDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-JusticeCenterDemoUITests/Pods-JusticeCenterDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8E0D51F89851226A90D2E78B /* Pods_JusticeCenterDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JusticeCenterDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B090E35E0217C21F6B779606 /* Pods-JusticeCenterDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JusticeCenterDemo.debug.xcconfig"; path = "Target Support Files/Pods-JusticeCenterDemo/Pods-JusticeCenterDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BFA14DEB7292A7A6DBA31B11 /* Pods-JusticeCenterDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JusticeCenterDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-JusticeCenterDemoTests/Pods-JusticeCenterDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE4ADAA15C09934F92703B0A /* Pods_JusticeCenterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JusticeCenterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D600DBCE0D0957876C069B4C /* Pods_JusticeCenterDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JusticeCenterDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A05D77B5925035F9AC9179 /* Pods-JusticeCenterDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JusticeCenterDemo.release.xcconfig"; path = "Target Support Files/Pods-JusticeCenterDemo/Pods-JusticeCenterDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F33FEBBC791A02A72847FFF4 /* Pods-JusticeCenterDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JusticeCenterDemoTests.release.xcconfig"; path = "Target Support Files/Pods-JusticeCenterDemoTests/Pods-JusticeCenterDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		FA8384052383A9BA008E575D /* JusticeCenterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JusticeCenterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8384082383A9BA008E575D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA8384092383A9BA008E575D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA83840B2383A9BA008E575D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		FA83840C2383A9BA008E575D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		FA8384122383A9BB008E575D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA8384142383A9BC008E575D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA8384172383A9BC008E575D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA8384192383A9BC008E575D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA83841A2383A9BC008E575D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA8384202383A9BD008E575D /* JusticeCenterDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JusticeCenterDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8384242383A9BD008E575D /* JusticeCenterDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JusticeCenterDemoTests.m; sourceTree = "<group>"; };
+		FA8384262383A9BD008E575D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA83842B2383A9BD008E575D /* JusticeCenterDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JusticeCenterDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA83842F2383A9BD008E575D /* JusticeCenterDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JusticeCenterDemoUITests.m; sourceTree = "<group>"; };
+		FA8384312383A9BD008E575D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8384C82386353F008E575D /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		FA8384C92386353F008E575D /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA8384022383A9BA008E575D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39D228D928101CDC4507F9E8 /* Pods_JusticeCenterDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA83841D2383A9BD008E575D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA50F9F289C3F9654A6775CB /* Pods_JusticeCenterDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8384282383A9BD008E575D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00099A23829D923AC4CD869 /* Pods_JusticeCenterDemoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46D021A65BDB78629ED7ED60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B090E35E0217C21F6B779606 /* Pods-JusticeCenterDemo.debug.xcconfig */,
+				E7A05D77B5925035F9AC9179 /* Pods-JusticeCenterDemo.release.xcconfig */,
+				BFA14DEB7292A7A6DBA31B11 /* Pods-JusticeCenterDemoTests.debug.xcconfig */,
+				F33FEBBC791A02A72847FFF4 /* Pods-JusticeCenterDemoTests.release.xcconfig */,
+				53DA66A2053DA7982385DB4F /* Pods-JusticeCenterDemoUITests.debug.xcconfig */,
+				650099CDBF21CF3D3D968A94 /* Pods-JusticeCenterDemoUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		48EA8B02583C2A3A014661D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE4ADAA15C09934F92703B0A /* Pods_JusticeCenterDemo.framework */,
+				D600DBCE0D0957876C069B4C /* Pods_JusticeCenterDemoTests.framework */,
+				8E0D51F89851226A90D2E78B /* Pods_JusticeCenterDemoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA8383FC2383A9BA008E575D = {
+			isa = PBXGroup;
+			children = (
+				FA8384072383A9BA008E575D /* JusticeCenterDemo */,
+				FA8384232383A9BD008E575D /* JusticeCenterDemoTests */,
+				FA83842E2383A9BD008E575D /* JusticeCenterDemoUITests */,
+				FA8384062383A9BA008E575D /* Products */,
+				46D021A65BDB78629ED7ED60 /* Pods */,
+				48EA8B02583C2A3A014661D7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FA8384062383A9BA008E575D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA8384052383A9BA008E575D /* JusticeCenterDemo.app */,
+				FA8384202383A9BD008E575D /* JusticeCenterDemoTests.xctest */,
+				FA83842B2383A9BD008E575D /* JusticeCenterDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA8384072383A9BA008E575D /* JusticeCenterDemo */ = {
+			isa = PBXGroup;
+			children = (
+				FA8384082383A9BA008E575D /* AppDelegate.h */,
+				FA8384092383A9BA008E575D /* AppDelegate.m */,
+				FA83840B2383A9BA008E575D /* SceneDelegate.h */,
+				FA83840C2383A9BA008E575D /* SceneDelegate.m */,
+				FA8384C82386353F008E575D /* RootViewController.h */,
+				FA8384C92386353F008E575D /* RootViewController.m */,
+				FA8384112383A9BB008E575D /* Main.storyboard */,
+				FA8384142383A9BC008E575D /* Assets.xcassets */,
+				FA8384162383A9BC008E575D /* LaunchScreen.storyboard */,
+				FA8384192383A9BC008E575D /* Info.plist */,
+				FA83841A2383A9BC008E575D /* main.m */,
+			);
+			path = JusticeCenterDemo;
+			sourceTree = "<group>";
+		};
+		FA8384232383A9BD008E575D /* JusticeCenterDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA8384242383A9BD008E575D /* JusticeCenterDemoTests.m */,
+				FA8384262383A9BD008E575D /* Info.plist */,
+			);
+			path = JusticeCenterDemoTests;
+			sourceTree = "<group>";
+		};
+		FA83842E2383A9BD008E575D /* JusticeCenterDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA83842F2383A9BD008E575D /* JusticeCenterDemoUITests.m */,
+				FA8384312383A9BD008E575D /* Info.plist */,
+			);
+			path = JusticeCenterDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA8384042383A9BA008E575D /* JusticeCenterDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA8384342383A9BD008E575D /* Build configuration list for PBXNativeTarget "JusticeCenterDemo" */;
+			buildPhases = (
+				2E722D11897687182DECDC11 /* [CP] Check Pods Manifest.lock */,
+				FA8384012383A9BA008E575D /* Sources */,
+				FA8384022383A9BA008E575D /* Frameworks */,
+				FA8384032383A9BA008E575D /* Resources */,
+				D620C230C56ADC8C8BDE4D9B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JusticeCenterDemo;
+			productName = JusticeCenterDemo;
+			productReference = FA8384052383A9BA008E575D /* JusticeCenterDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA83841F2383A9BD008E575D /* JusticeCenterDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA8384372383A9BD008E575D /* Build configuration list for PBXNativeTarget "JusticeCenterDemoTests" */;
+			buildPhases = (
+				952846D01F2A3A48CB7DD41D /* [CP] Check Pods Manifest.lock */,
+				FA83841C2383A9BD008E575D /* Sources */,
+				FA83841D2383A9BD008E575D /* Frameworks */,
+				FA83841E2383A9BD008E575D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA8384222383A9BD008E575D /* PBXTargetDependency */,
+			);
+			name = JusticeCenterDemoTests;
+			productName = JusticeCenterDemoTests;
+			productReference = FA8384202383A9BD008E575D /* JusticeCenterDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA83842A2383A9BD008E575D /* JusticeCenterDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA83843A2383A9BD008E575D /* Build configuration list for PBXNativeTarget "JusticeCenterDemoUITests" */;
+			buildPhases = (
+				E3B990AD24DA0007CC86AD14 /* [CP] Check Pods Manifest.lock */,
+				FA8384272383A9BD008E575D /* Sources */,
+				FA8384282383A9BD008E575D /* Frameworks */,
+				FA8384292383A9BD008E575D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA83842D2383A9BD008E575D /* PBXTargetDependency */,
+			);
+			name = JusticeCenterDemoUITests;
+			productName = JusticeCenterDemoUITests;
+			productReference = FA83842B2383A9BD008E575D /* JusticeCenterDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA8383FD2383A9BA008E575D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MM;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = MOMO;
+				TargetAttributes = {
+					FA8384042383A9BA008E575D = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					FA83841F2383A9BD008E575D = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = FA8384042383A9BA008E575D;
+					};
+					FA83842A2383A9BD008E575D = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = FA8384042383A9BA008E575D;
+					};
+				};
+			};
+			buildConfigurationList = FA8384002383A9BA008E575D /* Build configuration list for PBXProject "JusticeCenterDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA8383FC2383A9BA008E575D;
+			productRefGroup = FA8384062383A9BA008E575D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA8384042383A9BA008E575D /* JusticeCenterDemo */,
+				FA83841F2383A9BD008E575D /* JusticeCenterDemoTests */,
+				FA83842A2383A9BD008E575D /* JusticeCenterDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA8384032383A9BA008E575D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8384182383A9BC008E575D /* LaunchScreen.storyboard in Resources */,
+				FA8384152383A9BC008E575D /* Assets.xcassets in Resources */,
+				FA8384132383A9BB008E575D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA83841E2383A9BD008E575D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8384292383A9BD008E575D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E722D11897687182DECDC11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JusticeCenterDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		952846D01F2A3A48CB7DD41D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JusticeCenterDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D620C230C56ADC8C8BDE4D9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JusticeCenterDemo/Pods-JusticeCenterDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JusticeCenterDemo/Pods-JusticeCenterDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JusticeCenterDemo/Pods-JusticeCenterDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3B990AD24DA0007CC86AD14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JusticeCenterDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA8384012383A9BA008E575D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA83840A2383A9BA008E575D /* AppDelegate.m in Sources */,
+				FA83841B2383A9BC008E575D /* main.m in Sources */,
+				FA8384CA2386353F008E575D /* RootViewController.m in Sources */,
+				FA83840D2383A9BA008E575D /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA83841C2383A9BD008E575D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8384252383A9BD008E575D /* JusticeCenterDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8384272383A9BD008E575D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8384302383A9BD008E575D /* JusticeCenterDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA8384222383A9BD008E575D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA8384042383A9BA008E575D /* JusticeCenterDemo */;
+			targetProxy = FA8384212383A9BD008E575D /* PBXContainerItemProxy */;
+		};
+		FA83842D2383A9BD008E575D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA8384042383A9BA008E575D /* JusticeCenterDemo */;
+			targetProxy = FA83842C2383A9BD008E575D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA8384112383A9BB008E575D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA8384122383A9BB008E575D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA8384162383A9BC008E575D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA8384172383A9BC008E575D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA8384322383A9BD008E575D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA8384332383A9BD008E575D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA8384352383A9BD008E575D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B090E35E0217C21F6B779606 /* Pods-JusticeCenterDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EE5R8VDWG7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = JusticeCenterDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.momo.JusticeCenterDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA8384362383A9BD008E575D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7A05D77B5925035F9AC9179 /* Pods-JusticeCenterDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EE5R8VDWG7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = JusticeCenterDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.momo.JusticeCenterDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA8384382383A9BD008E575D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFA14DEB7292A7A6DBA31B11 /* Pods-JusticeCenterDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EE5R8VDWG7;
+				INFOPLIST_FILE = JusticeCenterDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.momo.JusticeCenterDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JusticeCenterDemo.app/JusticeCenterDemo";
+			};
+			name = Debug;
+		};
+		FA8384392383A9BD008E575D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F33FEBBC791A02A72847FFF4 /* Pods-JusticeCenterDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EE5R8VDWG7;
+				INFOPLIST_FILE = JusticeCenterDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.momo.JusticeCenterDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JusticeCenterDemo.app/JusticeCenterDemo";
+			};
+			name = Release;
+		};
+		FA83843B2383A9BD008E575D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53DA66A2053DA7982385DB4F /* Pods-JusticeCenterDemoUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EE5R8VDWG7;
+				INFOPLIST_FILE = JusticeCenterDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.momo.JusticeCenterDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JusticeCenterDemo;
+			};
+			name = Debug;
+		};
+		FA83843C2383A9BD008E575D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 650099CDBF21CF3D3D968A94 /* Pods-JusticeCenterDemoUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EE5R8VDWG7;
+				INFOPLIST_FILE = JusticeCenterDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.momo.JusticeCenterDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JusticeCenterDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA8384002383A9BA008E575D /* Build configuration list for PBXProject "JusticeCenterDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8384322383A9BD008E575D /* Debug */,
+				FA8384332383A9BD008E575D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8384342383A9BD008E575D /* Build configuration list for PBXNativeTarget "JusticeCenterDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8384352383A9BD008E575D /* Debug */,
+				FA8384362383A9BD008E575D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8384372383A9BD008E575D /* Build configuration list for PBXNativeTarget "JusticeCenterDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8384382383A9BD008E575D /* Debug */,
+				FA8384392383A9BD008E575D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA83843A2383A9BD008E575D /* Build configuration list for PBXNativeTarget "JusticeCenterDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA83843B2383A9BD008E575D /* Debug */,
+				FA83843C2383A9BD008E575D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA8383FD2383A9BA008E575D /* Project object */;
+}

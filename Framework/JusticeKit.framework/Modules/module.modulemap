@@ -1,0 +1,6 @@
+framework module JusticeKit {
+  umbrella header "JusticeKit.h"
+
+  export *
+  module * { export * }
+}

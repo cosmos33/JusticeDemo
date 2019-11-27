@@ -1,0 +1,6 @@
+framework module MCCSecret {
+  umbrella header "MCCSecret-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module MMJusticeCenter {
+  umbrella header "MMJusticeCenter-umbrella.h"
+
+  export *
+  module * { export * }
+}
