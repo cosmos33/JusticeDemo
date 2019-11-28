@@ -28,31 +28,31 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		00C49E2724BC9396EDE152E8CAE42269 /* MMJResultInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3C04280CDB0D6F537A352649A24169 /* MMJResultInfo.m */; };
+		00C49E2724BC9396EDE152E8CAE42269 /* MMJResultInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C85DFAA31E912BB70A65EB7FA2E65D7 /* MMJResultInfo.m */; };
 		050C8AC7CB576568709AFDA6F5553257 /* GCDWebServerErrorResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A64A689FC7B5890B01E2DFD2B010401E /* GCDWebServerErrorResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06AB56A18432E791013EBF5D85F52C0A /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC4EC3F1730FFFCED82BB198FC0087E /* unzip.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0AAB7946E9C7EB69650BD04661A93DC1 /* Pods-JusticeCenterDemoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 335F2889901D50E36D082725643866C8 /* Pods-JusticeCenterDemoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0BF6B817338BF18D3F8DF81D64E9A9B0 /* MMJFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C24D722A38B02C4706388283248A7F /* MMJFileManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0BF6B817338BF18D3F8DF81D64E9A9B0 /* MMJFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 81702663BC1B83E8C2E3AAC19C2DF7BC /* MMJFileManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0EC1806437F66CC12F06DD7ACD1FBA4A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C776C5391D26FFD1D7B022CC41D51BA6 /* Security.framework */; };
 		117172CE5598450FD838B4D730A1766D /* MNURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E0408D68521AE967E78BF38C437DFA /* MNURLSessionManager.m */; };
 		11C52C464F820414896BDD0DD1C9AA10 /* GCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E3756C95DE17419B2538D5C9C8200DA7 /* GCDWebServerDataResponse.m */; };
 		14703875367641811BD5FE75ACD67C96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72511534D7569A8FB98A67B66EB36EE /* Foundation.framework */; };
 		151430C81A33188722661CFFEE49FDF4 /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED03B2E3E6C802D748977C4354D110E /* GCDWebServerFileResponse.m */; };
-		182ED389BED8AC119F8325CEF8FE4EFD /* MMJFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39D53AA5E9A1ED058C60FE99953E95 /* MMJFileManager.m */; };
-		1915184B7C78E4B31EA02E687CB06906 /* MMJResultInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EE2A208FE2FC2AA7D4A13F1F11C42ED /* MMJResultInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		182ED389BED8AC119F8325CEF8FE4EFD /* MMJFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E19C31F70EA9EB005C0B4EBE16EF8F50 /* MMJFileManager.m */; };
+		1915184B7C78E4B31EA02E687CB06906 /* MMJResultInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DCAFF4EFCAE6431D0BC45704BF3404E /* MMJResultInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1945C8BC907524952F4D6DAC4BEC82FC /* MNURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 173FBB1898D7D4F9C6550CEFD7CB4EA2 /* MNURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19ACC596FB59EFCD64E2E568806E5FFF /* MNURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = D356120671C0004BD673815FA28640A1 /* MNURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A8C1CD48C2C7AAC91C8A5FD10AC226A /* MMJCenterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B8047E2347C7D3FAE5275D005C3FE /* MMJCenterConfig.m */; };
-		1C13D82849BA53215F10509ACA21142D /* MMJCenterConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 241F9D874B826BA1C0E2B64DB7C7F002 /* MMJCenterConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1A8C1CD48C2C7AAC91C8A5FD10AC226A /* MMJCenterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E00BDBD51D1C5179CE7A89BC8BBB8C /* MMJCenterConfig.m */; };
+		1C13D82849BA53215F10509ACA21142D /* MMJCenterConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 427651E5D979436C289E70731E447952 /* MMJCenterConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1F287FB91DC6F181C94C21D49DFF05D2 /* GCDWebServerMultiPartFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DEB23B1D032132A5D96B6F162B437DD /* GCDWebServerMultiPartFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F292B5410B16DBF60D1F47A48216622 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC63D845E675EE88315938B417DA4D7 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1FF95D85DC970E72F12BD003C32377EB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4C19EFFB16EC62D3BFAA1DB3AA3C81 /* CFNetwork.framework */; };
 		20386C4BEBA1CEA6E5EDB1669B7ADD76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4C19EFFB16EC62D3BFAA1DB3AA3C81 /* CFNetwork.framework */; };
-		229020680B0C5377D8B9C25FB5788198 /* MMJusticeCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 540350BFEA63CE328090DAB48254C9B1 /* MMJusticeCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		229020680B0C5377D8B9C25FB5788198 /* MMJusticeCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 491B164F2C14C033598E330C020A104C /* MMJusticeCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		237E246BE5FF1C5A06B088BA1DB29326 /* MNURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F20664C887CC372855CAE3A40DDD6 /* MNURLRequestSerialization.m */; };
-		241F2459A720FFC30CC5E6967C74C3E6 /* MMJDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 096A9CCCEF2FF0A268D3C92DF5066CAA /* MMJDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		241F2459A720FFC30CC5E6967C74C3E6 /* MMJDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0177130E57E880A7C52DE0058A4BE45A /* MMJDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2922C954DCA50DB1C087E9E9C9440393 /* CocoaAsyncSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FCC961AF5BD770F6984392F5E3589459 /* CocoaAsyncSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A115F730684178851FC4EFBB87C96CF /* MMJusticeCenter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F54D18432AD117EEB3451D5EECF1489E /* MMJusticeCenter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A115F730684178851FC4EFBB87C96CF /* MMJusticeCenter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FA50C797CA90C7280FDA5C3C80DEE /* MMJusticeCenter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D3FF29A45376E46E8F90C317CF97A30 /* GCDWebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = D235920A0F0D0340789F9F1390D41AF4 /* GCDWebServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E1D1771943F1A0242C1807DD8EE9376 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = B942DB1876E9C27D57CCA40B7A4CAB47 /* zip.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		368E32497AA7421EE16406E778538BF4 /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CA588CBEE09E24706F2ABAE9ED323FBC /* GCDWebServerMultiPartFormRequest.m */; };
@@ -60,21 +60,21 @@
 		411EE6BA92B228BF3497175C14FC7A90 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = C960E69AF763AC54512C81D19BCDA623 /* GCDAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		413D09CAA518E303EA358A26F3C2017C /* MNBaseRequest+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 237E3F661250F73CE2EB0B4F1551FE3C /* MNBaseRequest+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4290279C7C8B1E25053EBBBD8A18DEE9 /* MMWebUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 382F46444EC3608A092C381550C3B838 /* MMWebUploader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		42D2DD3FA58FB7C0707E81C2B6D81629 /* MMJusticeCenter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7E5AAC4ECE2DFE00152E2E683F3E /* MMJusticeCenter-dummy.m */; };
+		42D2DD3FA58FB7C0707E81C2B6D81629 /* MMJusticeCenter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B761CC4F90F34411C1251DF25BEB13AF /* MMJusticeCenter-dummy.m */; };
 		42F93E35363B08FDB37102D2364CD7B0 /* MMNNetwork-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B212B5DF006CDD7C327DCED9C7D987F /* MMNNetwork-dummy.m */; };
-		43219CED41FF27FC4AC93649F5A4E618 /* MMJDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB10DA7E59DB37888B011EA66E2B5B /* MMJDownloader.m */; };
+		43219CED41FF27FC4AC93649F5A4E618 /* MMJDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E9727AAEB29734A151FFEA2610E720BD /* MMJDownloader.m */; };
 		4328EDC9A85B938CF1E265459270281A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72511534D7569A8FB98A67B66EB36EE /* Foundation.framework */; };
-		49E2C83E783355EB3F69EAEADB4DEC51 /* MMJRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F572FCEC7C7433E5091C7374EBD2058 /* MMJRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		49E2C83E783355EB3F69EAEADB4DEC51 /* MMJRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 695E928AF62B05AA0B344A913EE62AF0 /* MMJRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4CAA7E972CF27AA6CEC67DAACCAA1BE9 /* MNBaseRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 365F647CE578269B8504CF1075432F65 /* MNBaseRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D7C5828B5DDC16740958E716F416E5B /* MNRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE83A69441C1954F28D3D2837FDE15C /* MNRequestOperation.m */; };
 		4DA4EB212C7DAA697DAE95E943DC3BD6 /* Pods-JusticeCenterDemoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A478EC777EDF2912B925A7199637C58F /* Pods-JusticeCenterDemoTests-dummy.m */; };
 		4E5AE13B3375EB5861C444E83A8A7200 /* MMWebUploader.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05F5B3711484D3283962F2C81F7FD9E7 /* MMWebUploader.bundle */; };
 		4FB7269430E328B02B7633AFBDB6343B /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C487278A17715B4D9F63AE1B0016E30 /* GCDWebServerErrorResponse.m */; };
-		51EB3F22B4C1BCA8C9E070D5734F250B /* NSDictionary+MMJSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = C419E9BB4EB959DEA2E2E40DB8465030 /* NSDictionary+MMJSafe.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		51EB3F22B4C1BCA8C9E070D5734F250B /* NSDictionary+MMJSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 063759A45FA01B4625D54EA100FE479A /* NSDictionary+MMJSafe.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		56D34EA5CDC265F5EB8F82683F65EF32 /* GCDWebServer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9614C1B7B48BE26243FC7F5D6CE4897D /* GCDWebServer-dummy.m */; };
 		59CA68ED4D95AC930CD116FB323E1110 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324D8BA22BB1FC01BF49FE24A7A59FEE /* SystemConfiguration.framework */; };
 		629564212E60A4A2FD864CD736512FFE /* MNNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 232651CCAC0F521BF8624DDFB705CCF1 /* MNNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6325DA603A29487E27FF7CC26807D527 /* NSData+MMJHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 82C615DC78F201C20174B39EBE6F5CFA /* NSData+MMJHash.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6325DA603A29487E27FF7CC26807D527 /* NSData+MMJHash.h in Headers */ = {isa = PBXBuildFile; fileRef = E03E6F5E06BFC89CCA65511DFD706EBB /* NSData+MMJHash.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		64DAECA12F1288D37B68E7BA01215921 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72511534D7569A8FB98A67B66EB36EE /* Foundation.framework */; };
 		66A8EC5928D7454EF50A692BF98C98FD /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 5519175D605B23C135DF92C1DB53BD58 /* ioapi.c */; settings = {COMPILER_FLAGS = "-Dunix -fno-objc-arc"; }; };
 		6BF1B7E12AC37BCC58A311677324755B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708C0C1FC68DAA8C995EC8E82BA45D73 /* MobileCoreServices.framework */; };
@@ -97,8 +97,8 @@
 		A151273925870B17AB17CB71AEF24C32 /* ZipArchive-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99AA127B2F49B5375F7D4EEBFBF893CE /* ZipArchive-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1BCA4B28B4EA05ECA948402605A1028 /* GCDWebServer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2002C26B5EC44F52507D5404ADC7686E /* GCDWebServer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A251D437B3DD41EA95A5ACDEDD53D75F /* GCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F1F247A7DE03E3B01138CBCB11CF1 /* GCDWebServerFunctions.m */; };
-		A374753330826C2816A13CA76CEB4735 /* MMJusticeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D5C61B87FE8AAB7D551723F3E20514 /* MMJusticeCenter.m */; };
-		A4F4F0402395F89944C6053F2132131A /* NSData+MMJHash.m in Sources */ = {isa = PBXBuildFile; fileRef = C6009DC25D201F181F5AE73E2A6D54A8 /* NSData+MMJHash.m */; };
+		A374753330826C2816A13CA76CEB4735 /* MMJusticeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E035D14B94C12612333DC45386B8D1C /* MMJusticeCenter.m */; };
+		A4F4F0402395F89944C6053F2132131A /* NSData+MMJHash.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8DECF04663AF26D0B331F9F5CB93BD /* NSData+MMJHash.m */; };
 		A5F8FBED8F7D686E1D45A5D0AD890E7A /* ZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDFCBC09FA8B6619FCE3BD026D2DDF2 /* ZipArchive.m */; settings = {COMPILER_FLAGS = "-Dunix -fno-objc-arc"; }; };
 		A636F89F7C0E861B6CADD6579E706510 /* GCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 240F2AE4260AB44C57161C7CD14FF1A5 /* GCDWebServerDataRequest.m */; };
 		AABF901AE3F22EEC01FCEB8F4E43A360 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708C0C1FC68DAA8C995EC8E82BA45D73 /* MobileCoreServices.framework */; };
@@ -112,16 +112,16 @@
 		B83E2BB0B8D03BCE103C4AC2102A3681 /* GCDWebServerHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = D878E41A073CAD993F594A1AA4DF080F /* GCDWebServerHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA33DDF049AAF89B193FC7683862BEE0 /* Pods-JusticeCenterDemoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DAF65A0E5DC976C92902AF991F25E7D /* Pods-JusticeCenterDemoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE72255A032C50B804C8E1B6D12D4E1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72511534D7569A8FB98A67B66EB36EE /* Foundation.framework */; };
-		BEEB23E3ED620CCED2F220360E0F64F9 /* NSDictionary+MMJSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDF1B6B88798B0EF84B18364E1780B2 /* NSDictionary+MMJSafe.m */; };
+		BEEB23E3ED620CCED2F220360E0F64F9 /* NSDictionary+MMJSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE2925BB9D50E717C0251D6833BC448 /* NSDictionary+MMJSafe.m */; };
 		BF0E4454B28437897BC092AE02CD0C13 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 385ABC14FABDA81222758F877A8DCE11 /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C013D31542389AD614F6FA2C4086EA80 /* MMJusticeConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 082AC45181DC1BB88A91A591EA25275B /* MMJusticeConstant.m */; };
+		C013D31542389AD614F6FA2C4086EA80 /* MMJusticeConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = ADED42844B836CEFAA8194DC1A6E52E1 /* MMJusticeConstant.m */; };
 		C154421ACE6A57CC3AAE3A28CFD25D6E /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 683D98591C4244F5F1C5B4A780F96535 /* ioapi.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C236F7FD0F60051BB8914F9BE010C4B6 /* ZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BEC575F80560B7F1BA39F95867B274 /* ZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C65A5B96E787A065C183ADC0ECEE7110 /* MNURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = FB32EF59090FA07C28586C7E704F421A /* MNURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C69EE61FE93F8F9698001FCA1E3837AC /* Pods-JusticeCenterDemoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F1979CAE712141D4D461C12C74BB84F9 /* Pods-JusticeCenterDemoUITests-dummy.m */; };
 		CFC945869C722B862999837F67FF0091 /* GCDWebServerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 605BA25A4EAA34317BF50C2E80B63CDA /* GCDWebServerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D2620B5544C397DC8E9BB895FE26AB42 /* GCDWebServerStreamedResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = F5BD3E8D209D9F34C268DEBA71F6598C /* GCDWebServerStreamedResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D33CB0B2A29695929C13D5D3DD89F316 /* MMJusticeConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 50DE30EF013CA70703EF014A94D31D27 /* MMJusticeConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D33CB0B2A29695929C13D5D3DD89F316 /* MMJusticeConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 3346F13784B20203618E691436288FDC /* MMJusticeConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D49D06CFE86A2C2C23CF1D24A6004F48 /* MNRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E61556DD0AE331602AAD8A5568EA78 /* MNRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAFE0F6EA25EB6C22946E35538B4E0D7 /* MNBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E26F874FCF4E1F0E13EAC401A9723F3 /* MNBaseRequest.m */; };
 		DF77DA76BD5962EE7DD383126BBBBAC8 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E49A812780D84867A400DB2D96B37D82 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -135,12 +135,12 @@
 		F2DDE5CA19339F085EA0BB38332D9AB0 /* MMWebUploader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F13F6725D72AA2853F4FBD7D2738C6F /* MMWebUploader-dummy.m */; };
 		F3C7E590CABE1D9B23008CBD0F843663 /* GCDWebServerURLEncodedFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0234344C31AD0A19A89CFC5BDAB50187 /* GCDWebServerURLEncodedFormRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3DC8CC8B3140EDBE5184ECD679C6D27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72511534D7569A8FB98A67B66EB36EE /* Foundation.framework */; };
-		F88ED2B1EC4ED95D3F1D973F9DDE3ABF /* MMJRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C3ACCB389B10526E681F8A29E7092C /* MMJRequest.m */; };
+		F88ED2B1EC4ED95D3F1D973F9DDE3ABF /* MMJRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C65E4037AF764472F634C05453C5A8AB /* MMJRequest.m */; };
 		F97DD8BB2166003B6C7FFF09B51FDFE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72511534D7569A8FB98A67B66EB36EE /* Foundation.framework */; };
 		FA33E8147BDDC2E4EBCCC0D69F21537E /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = E76FED8C73A186FD6F712D1A0C39339E /* zip.c */; settings = {COMPILER_FLAGS = "-Dunix -fno-objc-arc"; }; };
 		FBAC24475A48C28A1DA95E4FFCA8C8CF /* GCDWebServerConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 08595416CB0747CB13F2AED5BDBB781F /* GCDWebServerConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC8EEA0343309D36668168EF5D7C2735 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = C86DAE7B06ECCB101E64DC8C0C6A12C2 /* mztools.c */; settings = {COMPILER_FLAGS = "-Dunix -fno-objc-arc"; }; };
-		FDA5ABD7F3CCF538261C77F375C8B812 /* MMJCInnerVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 203BB6FD028684A0F9A7A33D99B5E535 /* MMJCInnerVersion.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FDA5ABD7F3CCF538261C77F375C8B812 /* MMJCInnerVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = B02F88C28A73B707B10B3B578F1A2E04 /* MMJCInnerVersion.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,18 +259,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0177130E57E880A7C52DE0058A4BE45A /* MMJDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJDownloader.h; path = Framework/JusticeCenter/MMJDownloader.h; sourceTree = "<group>"; };
 		0234344C31AD0A19A89CFC5BDAB50187 /* GCDWebServerURLEncodedFormRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerURLEncodedFormRequest.h; path = GCDWebServer/Requests/GCDWebServerURLEncodedFormRequest.h; sourceTree = "<group>"; };
 		02A96137017F46A23F2D657A4D2E6AE9 /* Pods-JusticeCenterDemoUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JusticeCenterDemoUITests-Info.plist"; sourceTree = "<group>"; };
 		03ED8BFE23C5F2CA4E4D864D353C979D /* Pods-JusticeCenterDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JusticeCenterDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		05F5B3711484D3283962F2C81F7FD9E7 /* MMWebUploader.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MMWebUploader.bundle; path = Frameworks/MMWebUploader/MMWebUploader.bundle; sourceTree = "<group>"; };
-		082AC45181DC1BB88A91A591EA25275B /* MMJusticeConstant.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJusticeConstant.m; path = Framework/JusticeCenter/MMJusticeConstant.m; sourceTree = "<group>"; };
+		063759A45FA01B4625D54EA100FE479A /* NSDictionary+MMJSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MMJSafe.h"; path = "Framework/JusticeCenter/NSDictionary+MMJSafe.h"; sourceTree = "<group>"; };
 		08595416CB0747CB13F2AED5BDBB781F /* GCDWebServerConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerConnection.h; path = GCDWebServer/Core/GCDWebServerConnection.h; sourceTree = "<group>"; };
-		096A9CCCEF2FF0A268D3C92DF5066CAA /* MMJDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJDownloader.h; path = Framework/JusticeCenter/MMJDownloader.h; sourceTree = "<group>"; };
 		0C91FEA169C50436FD6D08404FE00278 /* MMNNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MMNNetwork.framework; path = MMNNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAADE320FBF0266EFB29BBC4814990E /* MCCSecret.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MCCSecret.framework; path = Frameworks/MCCSecret.framework; sourceTree = "<group>"; };
 		0EE4A5A12D04B5AD9D9CED6D615FF4F9 /* ZipArchive.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ZipArchive.modulemap; sourceTree = "<group>"; };
 		0F733F8F45A50008D88A1AF8FFE86188 /* MNNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MNNetworkReachabilityManager.m; path = Framework/MNNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		101B8047E2347C7D3FAE5275D005C3FE /* MMJCenterConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJCenterConfig.m; path = Framework/JusticeCenter/MMJCenterConfig.m; sourceTree = "<group>"; };
+		0FDEDA695635293F5749F61A06AB1723 /* MMJusticeCenter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMJusticeCenter-prefix.pch"; sourceTree = "<group>"; };
 		10F2A84391514C219500693DA790DBFF /* Pods-JusticeCenterDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JusticeCenterDemo-dummy.m"; sourceTree = "<group>"; };
 		12DF34071A8D7897988AB05FB8CBE2CB /* Pods-JusticeCenterDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JusticeCenterDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		137C2760B70CC7001C7EC85C206F4C1F /* GCDWebServerResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerResponse.h; path = GCDWebServer/Core/GCDWebServerResponse.h; sourceTree = "<group>"; };
@@ -281,49 +281,49 @@
 		1CD85DA35A5030628A1901C123C8559E /* GCDWebServerRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerRequest.m; path = GCDWebServer/Core/GCDWebServerRequest.m; sourceTree = "<group>"; };
 		1D7FB7B283C372B9DA10B6B1C20E92E8 /* Pods-JusticeCenterDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JusticeCenterDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E5F03DEE0F7E69586A750B054E912B2 /* GCDWebServerStreamedResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerStreamedResponse.m; path = GCDWebServer/Responses/GCDWebServerStreamedResponse.m; sourceTree = "<group>"; };
+		1F1364F37AF5367E073F82220C12A88F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		2002C26B5EC44F52507D5404ADC7686E /* GCDWebServer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GCDWebServer-umbrella.h"; sourceTree = "<group>"; };
-		203BB6FD028684A0F9A7A33D99B5E535 /* MMJCInnerVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJCInnerVersion.h; path = Framework/JusticeCenter/MMJCInnerVersion.h; sourceTree = "<group>"; };
 		232651CCAC0F521BF8624DDFB705CCF1 /* MNNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MNNetworkReachabilityManager.h; path = Framework/MNNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		237E3F661250F73CE2EB0B4F1551FE3C /* MNBaseRequest+Extension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MNBaseRequest+Extension.h"; path = "Framework/MNBaseRequest+Extension.h"; sourceTree = "<group>"; };
 		240F2AE4260AB44C57161C7CD14FF1A5 /* GCDWebServerDataRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerDataRequest.m; path = GCDWebServer/Requests/GCDWebServerDataRequest.m; sourceTree = "<group>"; };
-		241F9D874B826BA1C0E2B64DB7C7F002 /* MMJCenterConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJCenterConfig.h; path = Framework/JusticeCenter/MMJCenterConfig.h; sourceTree = "<group>"; };
 		27586542F6327F9FF77AE6EF365F6A62 /* GCDWebServerFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerFunctions.h; path = GCDWebServer/Core/GCDWebServerFunctions.h; sourceTree = "<group>"; };
 		2E68FDBACB6A0368CA7BDEA416965A34 /* MMJusticeCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MMJusticeCenter.framework; path = MMJusticeCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F572FCEC7C7433E5091C7374EBD2058 /* MMJRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJRequest.h; path = Framework/JusticeCenter/MMJRequest.h; sourceTree = "<group>"; };
 		302D84B3C1DA2C290A5A683BB8075563 /* crypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = minizip/crypt.h; sourceTree = "<group>"; };
 		31A93058538A9F3DAD9B5C78D049140D /* Pods-JusticeCenterDemoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JusticeCenterDemoTests.modulemap"; sourceTree = "<group>"; };
 		324D8BA22BB1FC01BF49FE24A7A59FEE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		32C3ACCB389B10526E681F8A29E7092C /* MMJRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJRequest.m; path = Framework/JusticeCenter/MMJRequest.m; sourceTree = "<group>"; };
+		3346F13784B20203618E691436288FDC /* MMJusticeConstant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJusticeConstant.h; path = Framework/JusticeCenter/MMJusticeConstant.h; sourceTree = "<group>"; };
 		335F2889901D50E36D082725643866C8 /* Pods-JusticeCenterDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JusticeCenterDemoTests-umbrella.h"; sourceTree = "<group>"; };
 		33A7A567C579E8854EFF499BE32A7A7B /* MMNNetwork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MMNNetwork.modulemap; sourceTree = "<group>"; };
 		343AA4370089EE87B6D73120AE21D10B /* Pods-JusticeCenterDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JusticeCenterDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		34C24D722A38B02C4706388283248A7F /* MMJFileManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJFileManager.h; path = Framework/JusticeCenter/MMJFileManager.h; sourceTree = "<group>"; };
 		363D4BC1B439DAEEA864A27CC442A224 /* MMWebUploader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMWebUploader-umbrella.h"; sourceTree = "<group>"; };
 		365F647CE578269B8504CF1075432F65 /* MNBaseRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MNBaseRequest.h; path = Framework/MNBaseRequest.h; sourceTree = "<group>"; };
 		370BAD926A7C02C55E273A888D3F393D /* MMNNetwork-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MMNNetwork-Info.plist"; sourceTree = "<group>"; };
 		382F46444EC3608A092C381550C3B838 /* MMWebUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMWebUploader.h; path = Frameworks/MMWebUploader/MMWebUploader.h; sourceTree = "<group>"; };
 		385ABC14FABDA81222758F877A8DCE11 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = Source/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		38E00BDBD51D1C5179CE7A89BC8BBB8C /* MMJCenterConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJCenterConfig.m; path = Framework/JusticeCenter/MMJCenterConfig.m; sourceTree = "<group>"; };
+		3949D56B8E4181D014A8BF8AB08D9480 /* MMJusticeCenter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MMJusticeCenter-Info.plist"; sourceTree = "<group>"; };
 		3A62963C163F395CC5D40C431DB228A8 /* GCDWebServerFileRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerFileRequest.h; path = GCDWebServer/Requests/GCDWebServerFileRequest.h; sourceTree = "<group>"; };
 		3B212B5DF006CDD7C327DCED9C7D987F /* MMNNetwork-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMNNetwork-dummy.m"; sourceTree = "<group>"; };
 		3DEB23B1D032132A5D96B6F162B437DD /* GCDWebServerMultiPartFormRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerMultiPartFormRequest.h; path = GCDWebServer/Requests/GCDWebServerMultiPartFormRequest.h; sourceTree = "<group>"; };
+		3E035D14B94C12612333DC45386B8D1C /* MMJusticeCenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJusticeCenter.m; path = Framework/JusticeCenter/MMJusticeCenter.m; sourceTree = "<group>"; };
+		427651E5D979436C289E70731E447952 /* MMJCenterConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJCenterConfig.h; path = Framework/JusticeCenter/MMJCenterConfig.h; sourceTree = "<group>"; };
 		437FCA6E8EE8A376ABF0472AEF65036B /* CocoaAsyncSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CocoaAsyncSocket.modulemap; sourceTree = "<group>"; };
 		47E61556DD0AE331602AAD8A5568EA78 /* MNRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MNRequestOperation.h; path = Framework/MNRequestOperation.h; sourceTree = "<group>"; };
 		483F8F53FDC7DF339051083DE5E3C0BA /* GCDWebServerRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerRequest.h; path = GCDWebServer/Core/GCDWebServerRequest.h; sourceTree = "<group>"; };
+		491B164F2C14C033598E330C020A104C /* MMJusticeCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJusticeCenter.h; path = Framework/JusticeCenter/MMJusticeCenter.h; sourceTree = "<group>"; };
 		4DAF65A0E5DC976C92902AF991F25E7D /* Pods-JusticeCenterDemoUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JusticeCenterDemoUITests-umbrella.h"; sourceTree = "<group>"; };
 		4DD30436A54B015D6F6EDD4666279DF2 /* GCDWebServer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GCDWebServer-Info.plist"; sourceTree = "<group>"; };
 		4DDFCBC09FA8B6619FCE3BD026D2DDF2 /* ZipArchive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZipArchive.m; sourceTree = "<group>"; };
-		50DE30EF013CA70703EF014A94D31D27 /* MMJusticeConstant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJusticeConstant.h; path = Framework/JusticeCenter/MMJusticeConstant.h; sourceTree = "<group>"; };
 		51503D533927FEC9A1D51CD74990CA25 /* GCDWebServerConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerConnection.m; path = GCDWebServer/Core/GCDWebServerConnection.m; sourceTree = "<group>"; };
-		540350BFEA63CE328090DAB48254C9B1 /* MMJusticeCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJusticeCenter.h; path = Framework/JusticeCenter/MMJusticeCenter.h; sourceTree = "<group>"; };
 		5519175D605B23C135DF92C1DB53BD58 /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ioapi.c; path = minizip/ioapi.c; sourceTree = "<group>"; };
 		582B9C57421B9238EDABBACBAE6124FD /* CocoaAsyncSocket-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CocoaAsyncSocket-Info.plist"; sourceTree = "<group>"; };
-		58D5C61B87FE8AAB7D551723F3E20514 /* MMJusticeCenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJusticeCenter.m; path = Framework/JusticeCenter/MMJusticeCenter.m; sourceTree = "<group>"; };
 		5A5559809863AADA2E918646D4705680 /* Pods-JusticeCenterDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JusticeCenterDemo-frameworks.sh"; sourceTree = "<group>"; };
 		5C487278A17715B4D9F63AE1B0016E30 /* GCDWebServerErrorResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerErrorResponse.m; path = GCDWebServer/Responses/GCDWebServerErrorResponse.m; sourceTree = "<group>"; };
 		5D8B86574DC00258637356F9C207392C /* GCDWebServer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GCDWebServer-prefix.pch"; sourceTree = "<group>"; };
 		5ECB17C2805A406A76158E373AEBCD13 /* MMWebUploader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MMWebUploader.xcconfig; sourceTree = "<group>"; };
 		605BA25A4EAA34317BF50C2E80B63CDA /* GCDWebServerPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerPrivate.h; path = GCDWebServer/Core/GCDWebServerPrivate.h; sourceTree = "<group>"; };
 		683D98591C4244F5F1C5B4A780F96535 /* ioapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = minizip/ioapi.h; sourceTree = "<group>"; };
+		695E928AF62B05AA0B344A913EE62AF0 /* MMJRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJRequest.h; path = Framework/JusticeCenter/MMJRequest.h; sourceTree = "<group>"; };
 		6AC4EC3F1730FFFCED82BB198FC0087E /* unzip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = minizip/unzip.h; sourceTree = "<group>"; };
 		6AC63D845E675EE88315938B417DA4D7 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Source/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
 		6B4D73F85B57CB7F46BCE98C0E4AEC8C /* MMWebUploader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MMWebUploader.framework; path = MMWebUploader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,60 +332,60 @@
 		708C0C1FC68DAA8C995EC8E82BA45D73 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		74C733014583130C0372F1E979146EC4 /* MCCSecret.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MCCSecret.xcconfig; sourceTree = "<group>"; };
 		77BD3BF99ECDE590FDD1C7FF954804F2 /* MMWebUploader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MMWebUploader.modulemap; sourceTree = "<group>"; };
+		78AA695EBBA617BC6AE9244CA62E7F91 /* JusticeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JusticeKit.framework; path = Framework/JusticeKit.framework; sourceTree = "<group>"; };
 		78FED511871266BD3C0DD3B81495D404 /* unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = unzip.c; path = minizip/unzip.c; sourceTree = "<group>"; };
 		7933D8D0010D25D85DD343FD9A68B73E /* ZipArchive-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZipArchive-dummy.m"; sourceTree = "<group>"; };
+		7AE2925BB9D50E717C0251D6833BC448 /* NSDictionary+MMJSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MMJSafe.m"; path = "Framework/JusticeCenter/NSDictionary+MMJSafe.m"; sourceTree = "<group>"; };
 		7C154C47A4942B9AC5768CDB25681C49 /* MMDevice.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MMDevice.xcconfig; sourceTree = "<group>"; };
+		7C85DFAA31E912BB70A65EB7FA2E65D7 /* MMJResultInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJResultInfo.m; path = Framework/JusticeCenter/MMJResultInfo.m; sourceTree = "<group>"; };
 		7ED03B2E3E6C802D748977C4354D110E /* GCDWebServerFileResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerFileResponse.m; path = GCDWebServer/Responses/GCDWebServerFileResponse.m; sourceTree = "<group>"; };
-		7F15FAFF628D87FAC81DEEDF4F424739 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		808F3E3ABFB5CADBA0ED1FB2EDAA6D99 /* GCDWebServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCDWebServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81702663BC1B83E8C2E3AAC19C2DF7BC /* MMJFileManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJFileManager.h; path = Framework/JusticeCenter/MMJFileManager.h; sourceTree = "<group>"; };
 		81752B335EB60316C36B3774CDBC3C0C /* Pods-JusticeCenterDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JusticeCenterDemo.release.xcconfig"; sourceTree = "<group>"; };
-		82C615DC78F201C20174B39EBE6F5CFA /* NSData+MMJHash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+MMJHash.h"; path = "Framework/JusticeCenter/NSData+MMJHash.h"; sourceTree = "<group>"; };
 		8437F44847191E864638913E62E3B2BF /* GCDWebServer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GCDWebServer.modulemap; sourceTree = "<group>"; };
 		846E3BAEF37E0F44F64FD6B903257D7F /* MMNNetwork-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMNNetwork-umbrella.h"; sourceTree = "<group>"; };
 		847F20664C887CC372855CAE3A40DDD6 /* MNURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MNURLRequestSerialization.m; path = Framework/MNURLRequestSerialization.m; sourceTree = "<group>"; };
-		8C4E3435FD9E28D72C9FC56C3EA559C6 /* MMJusticeCenter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MMJusticeCenter.modulemap; sourceTree = "<group>"; };
 		8E26F874FCF4E1F0E13EAC401A9723F3 /* MNBaseRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MNBaseRequest.m; path = Framework/MNBaseRequest.m; sourceTree = "<group>"; };
-		8EE2A208FE2FC2AA7D4A13F1F11C42ED /* MMJResultInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJResultInfo.h; path = Framework/JusticeCenter/MMJResultInfo.h; sourceTree = "<group>"; };
 		90FFA5828B543F2314046391E7CEF737 /* Pods_JusticeCenterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JusticeCenterDemo.framework; path = "Pods-JusticeCenterDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DA0F846622656D019800DD189BBAC5 /* Pods_JusticeCenterDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JusticeCenterDemoTests.framework; path = "Pods-JusticeCenterDemoTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9614C1B7B48BE26243FC7F5D6CE4897D /* GCDWebServer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GCDWebServer-dummy.m"; sourceTree = "<group>"; };
 		964DCA6C5676F962882DE3DCD5754CD4 /* Pods-JusticeCenterDemoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JusticeCenterDemoTests-Info.plist"; sourceTree = "<group>"; };
+		968097D4C01836F9828AAF04F31ACE75 /* MMJusticeCenter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MMJusticeCenter.modulemap; sourceTree = "<group>"; };
 		96EE45B111856267F191DBBEBCF91285 /* Pods-JusticeCenterDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JusticeCenterDemo-Info.plist"; sourceTree = "<group>"; };
 		97BEC575F80560B7F1BA39F95867B274 /* ZipArchive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		99AA127B2F49B5375F7D4EEBFBF893CE /* ZipArchive-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZipArchive-umbrella.h"; sourceTree = "<group>"; };
 		9C265B3935F4ED595D531EF7E94D4D34 /* mztools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = minizip/mztools.h; sourceTree = "<group>"; };
-		9D3C04280CDB0D6F537A352649A24169 /* MMJResultInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJResultInfo.m; path = Framework/JusticeCenter/MMJResultInfo.m; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DCAFF4EFCAE6431D0BC45704BF3404E /* MMJResultInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJResultInfo.h; path = Framework/JusticeCenter/MMJResultInfo.h; sourceTree = "<group>"; };
 		9EFD31DDF19CD1FB4F5E80CC181DDE0C /* Pods-JusticeCenterDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JusticeCenterDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9FE83A69441C1954F28D3D2837FDE15C /* MNRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MNRequestOperation.m; path = Framework/MNRequestOperation.m; sourceTree = "<group>"; };
-		A1AC84F0E69407BA912C6E9275E564BA /* MMJusticeCenter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MMJusticeCenter-Info.plist"; sourceTree = "<group>"; };
 		A478EC777EDF2912B925A7199637C58F /* Pods-JusticeCenterDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JusticeCenterDemoTests-dummy.m"; sourceTree = "<group>"; };
 		A5D7D8B8B92DC7053769E34E94903B25 /* GCDWebServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServer.m; path = GCDWebServer/Core/GCDWebServer.m; sourceTree = "<group>"; };
 		A64A689FC7B5890B01E2DFD2B010401E /* GCDWebServerErrorResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerErrorResponse.h; path = GCDWebServer/Responses/GCDWebServerErrorResponse.h; sourceTree = "<group>"; };
+		A90FBDC7B4404A2A4285FFE9E862D82A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		AA4E2755562A8846AE7CA390C44801A8 /* Pods-JusticeCenterDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JusticeCenterDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		AB94F76E4275BE29222D1879ABEFC197 /* ZipArchive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZipArchive.xcconfig; sourceTree = "<group>"; };
+		ADED42844B836CEFAA8194DC1A6E52E1 /* MMJusticeConstant.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJusticeConstant.m; path = Framework/JusticeCenter/MMJusticeConstant.m; sourceTree = "<group>"; };
 		AE2B69A763AF1A45B99E1004D1BADE84 /* Pods-JusticeCenterDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JusticeCenterDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AE4C19EFFB16EC62D3BFAA1DB3AA3C81 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		B02F88C28A73B707B10B3B578F1A2E04 /* MMJCInnerVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMJCInnerVersion.h; path = Framework/JusticeCenter/MMJCInnerVersion.h; sourceTree = "<group>"; };
 		B2918AD46DF7B7EFD444A94551ED35BA /* MMDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMDevice.framework; path = Product/MMDevice.framework; sourceTree = "<group>"; };
-		B3BB10DA7E59DB37888B011EA66E2B5B /* MMJDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJDownloader.m; path = Framework/JusticeCenter/MMJDownloader.m; sourceTree = "<group>"; };
 		B68C1052A3B51DBCF7D960F898AAFA95 /* GCDWebServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GCDWebServer.framework; path = GCDWebServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B761CC4F90F34411C1251DF25BEB13AF /* MMJusticeCenter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMJusticeCenter-dummy.m"; sourceTree = "<group>"; };
 		B779ADC54CF4F9300D12FEB6747495A0 /* MMNNetwork.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MMNNetwork.xcconfig; sourceTree = "<group>"; };
 		B933E3C1892D145F33787B00EBA6E131 /* ZipArchive-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ZipArchive-Info.plist"; sourceTree = "<group>"; };
 		B942DB1876E9C27D57CCA40B7A4CAB47 /* zip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = zip.h; path = minizip/zip.h; sourceTree = "<group>"; };
-		BE39B1BC364FD55CC4E31618E077553C /* MMJusticeCenter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMJusticeCenter-prefix.pch"; sourceTree = "<group>"; };
+		BE7FA50C797CA90C7280FDA5C3C80DEE /* MMJusticeCenter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMJusticeCenter-umbrella.h"; sourceTree = "<group>"; };
 		BE88DEFD421630B396AA0CCE724F4D60 /* GCDWebServerDataResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerDataResponse.h; path = GCDWebServer/Responses/GCDWebServerDataResponse.h; sourceTree = "<group>"; };
 		C0CBB72E88570EF99B8F42A9A9B6039B /* ZipArchive-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZipArchive-prefix.pch"; sourceTree = "<group>"; };
 		C3CDC1E79F2EC723975D7A302CF8708F /* Pods-JusticeCenterDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JusticeCenterDemo.modulemap"; sourceTree = "<group>"; };
-		C419E9BB4EB959DEA2E2E40DB8465030 /* NSDictionary+MMJSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MMJSafe.h"; path = "Framework/JusticeCenter/NSDictionary+MMJSafe.h"; sourceTree = "<group>"; };
-		C4696587CBA29638C1125C2ADE94B4CA /* JusticeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JusticeKit.framework; path = Framework/JusticeKit.framework; sourceTree = "<group>"; };
-		C6009DC25D201F181F5AE73E2A6D54A8 /* NSData+MMJHash.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+MMJHash.m"; path = "Framework/JusticeCenter/NSData+MMJHash.m"; sourceTree = "<group>"; };
+		C65E4037AF764472F634C05453C5A8AB /* MMJRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJRequest.m; path = Framework/JusticeCenter/MMJRequest.m; sourceTree = "<group>"; };
 		C72511534D7569A8FB98A67B66EB36EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		C776C5391D26FFD1D7B022CC41D51BA6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		C86DAE7B06ECCB101E64DC8C0C6A12C2 /* mztools.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mztools.c; path = minizip/mztools.c; sourceTree = "<group>"; };
 		C960E69AF763AC54512C81D19BCDA623 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = Source/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		CA588CBEE09E24706F2ABAE9ED323FBC /* GCDWebServerMultiPartFormRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerMultiPartFormRequest.m; path = GCDWebServer/Requests/GCDWebServerMultiPartFormRequest.m; sourceTree = "<group>"; };
 		CD21BB2110979F15BCBBCAA86F161A8F /* Pods-JusticeCenterDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JusticeCenterDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		CE39D53AA5E9A1ED058C60FE99953E95 /* MMJFileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJFileManager.m; path = Framework/JusticeCenter/MMJFileManager.m; sourceTree = "<group>"; };
 		CFE63E664F058CEF6E9BCDF3281BC293 /* CocoaAsyncSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaAsyncSocket.xcconfig; sourceTree = "<group>"; };
 		D235920A0F0D0340789F9F1390D41AF4 /* GCDWebServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServer.h; path = GCDWebServer/Core/GCDWebServer.h; sourceTree = "<group>"; };
 		D356120671C0004BD673815FA28640A1 /* MNURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MNURLRequestSerialization.h; path = Framework/MNURLRequestSerialization.h; sourceTree = "<group>"; };
@@ -396,32 +396,33 @@
 		DAF96311612FCD8F2EA354289127DC70 /* GCDWebServerURLEncodedFormRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerURLEncodedFormRequest.m; path = GCDWebServer/Requests/GCDWebServerURLEncodedFormRequest.m; sourceTree = "<group>"; };
 		DAFC4FBA3B95C5E9D5CBFC260AA08804 /* ZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZipArchive.framework; path = ZipArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF27069D419304B7153898EFA81BAE9A /* MMWebUploader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMWebUploader.m; path = Frameworks/MMWebUploader/MMWebUploader.m; sourceTree = "<group>"; };
+		E03E6F5E06BFC89CCA65511DFD706EBB /* NSData+MMJHash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+MMJHash.h"; path = "Framework/JusticeCenter/NSData+MMJHash.h"; sourceTree = "<group>"; };
+		E19C31F70EA9EB005C0B4EBE16EF8F50 /* MMJFileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJFileManager.m; path = Framework/JusticeCenter/MMJFileManager.m; sourceTree = "<group>"; };
+		E242CD1C0AC079DE20E9EC2637657BF1 /* MMJusticeCenter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MMJusticeCenter.xcconfig; sourceTree = "<group>"; };
 		E3756C95DE17419B2538D5C9C8200DA7 /* GCDWebServerDataResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerDataResponse.m; path = GCDWebServer/Responses/GCDWebServerDataResponse.m; sourceTree = "<group>"; };
 		E49A812780D84867A400DB2D96B37D82 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
 		E73F1F247A7DE03E3B01138CBCB11CF1 /* GCDWebServerFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerFunctions.m; path = GCDWebServer/Core/GCDWebServerFunctions.m; sourceTree = "<group>"; };
 		E76FED8C73A186FD6F712D1A0C39339E /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = zip.c; path = minizip/zip.c; sourceTree = "<group>"; };
 		E836D26B67126A68E967BAF69C3B5F55 /* GCDWebServerFileResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerFileResponse.h; path = GCDWebServer/Responses/GCDWebServerFileResponse.h; sourceTree = "<group>"; };
 		E86376E8EC7E19985EE3CF18ECA6F9F3 /* GCDWebServer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GCDWebServer.xcconfig; sourceTree = "<group>"; };
+		E9727AAEB29734A151FFEA2610E720BD /* MMJDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMJDownloader.m; path = Framework/JusticeCenter/MMJDownloader.m; sourceTree = "<group>"; };
 		E9E0408D68521AE967E78BF38C437DFA /* MNURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MNURLSessionManager.m; path = Framework/MNURLSessionManager.m; sourceTree = "<group>"; };
-		EB50D9C72746A44568243B9903C9EC93 /* MMJusticeCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MMJusticeCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EBF581EEC5115622F980F731939F9B6D /* Pods-JusticeCenterDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JusticeCenterDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		EC2CE17D3F01A3002052FCE0132DAA86 /* Pods-JusticeCenterDemoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JusticeCenterDemoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		EC3864E56A42887FF70589BC40BE5C80 /* MMWebUploader-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MMWebUploader-Info.plist"; sourceTree = "<group>"; };
-		ED9A7E5AAC4ECE2DFE00152E2E683F3E /* MMJusticeCenter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMJusticeCenter-dummy.m"; sourceTree = "<group>"; };
+		ED8DECF04663AF26D0B331F9F5CB93BD /* NSData+MMJHash.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+MMJHash.m"; path = "Framework/JusticeCenter/NSData+MMJHash.m"; sourceTree = "<group>"; };
 		ED9E24F50AF88EF908F8AF5C635FB28C /* CocoaAsyncSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaAsyncSocket-dummy.m"; sourceTree = "<group>"; };
 		EDDAFBEC58C47CA4055C2DAFA8100E04 /* Pods-JusticeCenterDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JusticeCenterDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EFDF1B6B88798B0EF84B18364E1780B2 /* NSDictionary+MMJSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MMJSafe.m"; path = "Framework/JusticeCenter/NSDictionary+MMJSafe.m"; sourceTree = "<group>"; };
 		F1099F84C3ECCEC51007A73DD05488DF /* CocoaAsyncSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-prefix.pch"; sourceTree = "<group>"; };
 		F1979CAE712141D4D461C12C74BB84F9 /* Pods-JusticeCenterDemoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JusticeCenterDemoUITests-dummy.m"; sourceTree = "<group>"; };
 		F540222014C5D202CA1DC4D9B5651434 /* ZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZipArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F54D18432AD117EEB3451D5EECF1489E /* MMJusticeCenter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMJusticeCenter-umbrella.h"; sourceTree = "<group>"; };
 		F5BD3E8D209D9F34C268DEBA71F6598C /* GCDWebServerStreamedResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerStreamedResponse.h; path = GCDWebServer/Responses/GCDWebServerStreamedResponse.h; sourceTree = "<group>"; };
+		F5E09D0AFC4578FBD43431B69D0DB882 /* MMJusticeCenter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MMJusticeCenter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F80147329DB2B2F48BCD30EA938AB351 /* GCDWebServerFileRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerFileRequest.m; path = GCDWebServer/Requests/GCDWebServerFileRequest.m; sourceTree = "<group>"; };
 		F855E7A2CC99293A581E803D77BCD758 /* MNURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MNURLResponseSerialization.m; path = Framework/MNURLResponseSerialization.m; sourceTree = "<group>"; };
 		FB32EF59090FA07C28586C7E704F421A /* MNURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MNURLResponseSerialization.h; path = Framework/MNURLResponseSerialization.h; sourceTree = "<group>"; };
 		FCC961AF5BD770F6984392F5E3589459 /* CocoaAsyncSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-umbrella.h"; sourceTree = "<group>"; };
 		FDAD8D4CC4D0692210236FF905008F9D /* Pods_JusticeCenterDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JusticeCenterDemoUITests.framework; path = "Pods-JusticeCenterDemoUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE73F1032E4B329370E3B18478D11F88 /* MMJusticeCenter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MMJusticeCenter.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -553,12 +554,34 @@
 			path = "Target Support Files/Pods-JusticeCenterDemo";
 			sourceTree = "<group>";
 		};
-		28961B0669B133028A3AEAF5920C3D5F /* Frameworks */ = {
+		2E0BA5C63E4B0FB18525FAED52A68ABD /* MMJusticeCenter */ = {
 			isa = PBXGroup;
 			children = (
-				C4696587CBA29638C1125C2ADE94B4CA /* JusticeKit.framework */,
+				427651E5D979436C289E70731E447952 /* MMJCenterConfig.h */,
+				38E00BDBD51D1C5179CE7A89BC8BBB8C /* MMJCenterConfig.m */,
+				B02F88C28A73B707B10B3B578F1A2E04 /* MMJCInnerVersion.h */,
+				0177130E57E880A7C52DE0058A4BE45A /* MMJDownloader.h */,
+				E9727AAEB29734A151FFEA2610E720BD /* MMJDownloader.m */,
+				81702663BC1B83E8C2E3AAC19C2DF7BC /* MMJFileManager.h */,
+				E19C31F70EA9EB005C0B4EBE16EF8F50 /* MMJFileManager.m */,
+				695E928AF62B05AA0B344A913EE62AF0 /* MMJRequest.h */,
+				C65E4037AF764472F634C05453C5A8AB /* MMJRequest.m */,
+				9DCAFF4EFCAE6431D0BC45704BF3404E /* MMJResultInfo.h */,
+				7C85DFAA31E912BB70A65EB7FA2E65D7 /* MMJResultInfo.m */,
+				491B164F2C14C033598E330C020A104C /* MMJusticeCenter.h */,
+				3E035D14B94C12612333DC45386B8D1C /* MMJusticeCenter.m */,
+				3346F13784B20203618E691436288FDC /* MMJusticeConstant.h */,
+				ADED42844B836CEFAA8194DC1A6E52E1 /* MMJusticeConstant.m */,
+				E03E6F5E06BFC89CCA65511DFD706EBB /* NSData+MMJHash.h */,
+				ED8DECF04663AF26D0B331F9F5CB93BD /* NSData+MMJHash.m */,
+				063759A45FA01B4625D54EA100FE479A /* NSDictionary+MMJSafe.h */,
+				7AE2925BB9D50E717C0251D6833BC448 /* NSDictionary+MMJSafe.m */,
+				DC421FF956DAA315DD4A9E2851593469 /* Frameworks */,
+				40823A0FC18DBFE1EFAB4A8CCA990E9B /* Pod */,
+				DC7B3A2339AD9E5EC184B7BB80FF22DA /* Support Files */,
 			);
-			name = Frameworks;
+			name = MMJusticeCenter;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		378D329623B4FF655279384B6DBFD179 /* Frameworks */ = {
@@ -569,6 +592,16 @@
 				1E52FD3C6F42DB989346B553C9C4E27C /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40823A0FC18DBFE1EFAB4A8CCA990E9B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				1F1364F37AF5367E073F82220C12A88F /* LICENSE */,
+				F5E09D0AFC4578FBD43431B69D0DB882 /* MMJusticeCenter.podspec */,
+				A90FBDC7B4404A2A4285FFE9E862D82A /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		427A8FE56D5CE40CCDCE16CF5DE785DF /* Support Files */ = {
@@ -606,15 +639,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MMNNetwork";
-			sourceTree = "<group>";
-		};
-		51535F36E85230F62B894B0C1A06447F /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				7F15FAFF628D87FAC81DEEDF4F424739 /* LICENSE */,
-				EB50D9C72746A44568243B9903C9EC93 /* MMJusticeCenter.podspec */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		59991C7CBBDF8B60D82F44CB488EA30B /* Core */ = {
@@ -715,7 +739,7 @@
 		677C1AFF4D82F157EE6A7CAB3F32835D /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				86EFAE4C052944725885C9C214759F94 /* MMJusticeCenter */,
+				2E0BA5C63E4B0FB18525FAED52A68ABD /* MMJusticeCenter */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -768,36 +792,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ZipArchive";
-			sourceTree = "<group>";
-		};
-		86EFAE4C052944725885C9C214759F94 /* MMJusticeCenter */ = {
-			isa = PBXGroup;
-			children = (
-				241F9D874B826BA1C0E2B64DB7C7F002 /* MMJCenterConfig.h */,
-				101B8047E2347C7D3FAE5275D005C3FE /* MMJCenterConfig.m */,
-				203BB6FD028684A0F9A7A33D99B5E535 /* MMJCInnerVersion.h */,
-				096A9CCCEF2FF0A268D3C92DF5066CAA /* MMJDownloader.h */,
-				B3BB10DA7E59DB37888B011EA66E2B5B /* MMJDownloader.m */,
-				34C24D722A38B02C4706388283248A7F /* MMJFileManager.h */,
-				CE39D53AA5E9A1ED058C60FE99953E95 /* MMJFileManager.m */,
-				2F572FCEC7C7433E5091C7374EBD2058 /* MMJRequest.h */,
-				32C3ACCB389B10526E681F8A29E7092C /* MMJRequest.m */,
-				8EE2A208FE2FC2AA7D4A13F1F11C42ED /* MMJResultInfo.h */,
-				9D3C04280CDB0D6F537A352649A24169 /* MMJResultInfo.m */,
-				540350BFEA63CE328090DAB48254C9B1 /* MMJusticeCenter.h */,
-				58D5C61B87FE8AAB7D551723F3E20514 /* MMJusticeCenter.m */,
-				50DE30EF013CA70703EF014A94D31D27 /* MMJusticeConstant.h */,
-				082AC45181DC1BB88A91A591EA25275B /* MMJusticeConstant.m */,
-				82C615DC78F201C20174B39EBE6F5CFA /* NSData+MMJHash.h */,
-				C6009DC25D201F181F5AE73E2A6D54A8 /* NSData+MMJHash.m */,
-				C419E9BB4EB959DEA2E2E40DB8465030 /* NSDictionary+MMJSafe.h */,
-				EFDF1B6B88798B0EF84B18364E1780B2 /* NSDictionary+MMJSafe.m */,
-				28961B0669B133028A3AEAF5920C3D5F /* Frameworks */,
-				51535F36E85230F62B894B0C1A06447F /* Pod */,
-				F3DC88D9FBF62D87E6315C7093E564A7 /* Support Files */,
-			);
-			name = MMJusticeCenter;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		87C95A7EE2CF8F43093796FAB9BB7C51 /* Support Files */ = {
@@ -920,6 +914,28 @@
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
+		DC421FF956DAA315DD4A9E2851593469 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78AA695EBBA617BC6AE9244CA62E7F91 /* JusticeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC7B3A2339AD9E5EC184B7BB80FF22DA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				968097D4C01836F9828AAF04F31ACE75 /* MMJusticeCenter.modulemap */,
+				E242CD1C0AC079DE20E9EC2637657BF1 /* MMJusticeCenter.xcconfig */,
+				B761CC4F90F34411C1251DF25BEB13AF /* MMJusticeCenter-dummy.m */,
+				3949D56B8E4181D014A8BF8AB08D9480 /* MMJusticeCenter-Info.plist */,
+				0FDEDA695635293F5749F61A06AB1723 /* MMJusticeCenter-prefix.pch */,
+				BE7FA50C797CA90C7280FDA5C3C80DEE /* MMJusticeCenter-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "JusticeCenterDemo/Pods/Target Support Files/MMJusticeCenter";
+			sourceTree = "<group>";
+		};
 		E1D9DF7CA9626849F85A9DB1B298E1D1 /* MCCSecret */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,20 +944,6 @@
 			);
 			name = MCCSecret;
 			path = MCCSecret;
-			sourceTree = "<group>";
-		};
-		F3DC88D9FBF62D87E6315C7093E564A7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8C4E3435FD9E28D72C9FC56C3EA559C6 /* MMJusticeCenter.modulemap */,
-				FE73F1032E4B329370E3B18478D11F88 /* MMJusticeCenter.xcconfig */,
-				ED9A7E5AAC4ECE2DFE00152E2E683F3E /* MMJusticeCenter-dummy.m */,
-				A1AC84F0E69407BA912C6E9275E564BA /* MMJusticeCenter-Info.plist */,
-				BE39B1BC364FD55CC4E31618E077553C /* MMJusticeCenter-prefix.pch */,
-				F54D18432AD117EEB3451D5EECF1489E /* MMJusticeCenter-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "JusticeCenterDemo/Pods/Target Support Files/MMJusticeCenter";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1557,7 +1559,7 @@
 /* Begin XCBuildConfiguration section */
 		01465E54511520449B733F139FB7B35E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE73F1032E4B329370E3B18478D11F88 /* MMJusticeCenter.xcconfig */;
+			baseConfigurationReference = E242CD1C0AC079DE20E9EC2637657BF1 /* MMJusticeCenter.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2079,7 +2081,7 @@
 		};
 		C4F240F051D82EDA52F8AB40EF66B7CA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE73F1032E4B329370E3B18478D11F88 /* MMJusticeCenter.xcconfig */;
+			baseConfigurationReference = E242CD1C0AC079DE20E9EC2637657BF1 /* MMJusticeCenter.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-#import "MMJusticeCenter.h"
+#import <MMJusticeCenter/MMJusticeCenter.h>
 #import <Photos/Photos.h>
 
 #import <MMWebUploader/MMWebUploader-umbrella.h>
