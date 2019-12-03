@@ -5,8 +5,11 @@ import android.support.annotation.Nullable;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.momo.justicecenter.JusticeCenter;
+import com.momo.justicecenter.config.Config;
 import com.momo.justicecenter.config.ResourceConfig;
 import com.momo.justicecenter.utils.MLogger;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.HashMap;
@@ -14,7 +17,7 @@ import java.util.Map;
 
 public class JusticeRequest {
     public static final String TAG = "Justice_request...";
-    private static final String CONFIG_URL = "https://cosmos-video-api.immomo.com/video/index/mulResource";
+    private static final String CONFIG_URL = "https:///cosmos-video-api.immomo.com/video/index/spamResource";
     private static final String SPAM_BUSINESS_MARK = "spam";
     private static JusticeRequest sJusticeRequest;
     private NetworkUtil mNetworkUtil;
@@ -39,7 +42,7 @@ public class JusticeRequest {
     }
 
     public interface OnConfigRequestListener {
-        void onSuccess(Map<String, Map<String, ResourceConfig>> config);
+        void onSuccess(Config config);
 
         void onFailed(int code, String msg);
     }
@@ -63,11 +66,9 @@ public class JusticeRequest {
                 Gson gson = mGsonThreadLocal.get();
                 if (gson != null) {
                     try {
-                        Map<String, Map<String, ResourceConfig>> resourceConfig = gson.fromJson(resultStr,
-                                new TypeToken<Map<String, Map<String, ResourceConfig>>>() {
-                                }.getType());
-                        if (resourceConfig != null) {
-                            listener.onSuccess(resourceConfig);
+                        Config config = gson.fromJson(resultStr, Config.class);
+                        if (config != null) {
+                            listener.onSuccess(config);
                             return;
                         }
                     } catch (Exception e) {

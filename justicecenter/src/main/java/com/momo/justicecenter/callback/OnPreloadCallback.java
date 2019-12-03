@@ -6,4 +6,6 @@ import java.util.Map;
 
 public interface OnPreloadCallback {
     void onPreloadCallback(Map<String, ResResult> resultMap);
+
+    void onFailed(String msg);
 }

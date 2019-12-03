@@ -46,9 +46,15 @@ public class MainActivity extends AppCompatActivity {
         Set<String> business = new HashSet<>();
         business.add("AntiSpam");
         business.add("AntiPorn");
-        JusticeCenter.preload(business, new OnPreloadCallback() {
+        JusticeCenter.preload("live", new OnPreloadCallback() {
             @Override
             public void onPreloadCallback(Map<String, ResResult> resultMap) {
+                MLogger.d(TAG, "success",resultMap);
+            }
+
+            @Override
+            public void onFailed(String msg) {
+                MLogger.d(TAG, "onFailed", msg);
 
             }
         });
@@ -58,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Set<String> businesses = new HashSet<>();
         businesses.add("AntiSpam");
         businesses.add("AntiPorn");
-        JusticeCenter.asyncNewJustice(businesses, new OnAsyncJusticeCallback() {
+        JusticeCenter.asyncNewJustice("live", new OnAsyncJusticeCallback() {
             @Override
             public void onCreated(Justice justice, List<String> successBusiness) {
                 Bitmap image = BitmapFactory.decodeFile("/sdcard/ht.jpg");
@@ -71,5 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 MLogger.e(TAG, "asyncConstruct", em);
             }
         });
+    }
+
+    public void clearCache(View view) {
+        JusticeCenter.clearCache();
     }
 }

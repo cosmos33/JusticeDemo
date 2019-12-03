@@ -7,6 +7,9 @@ import android.util.Pair;
 import com.immomo.justice.Justice;
 import com.momo.justicecenter.callback.OnAsyncJusticeCallback;
 import com.momo.justicecenter.callback.OnPreloadCallback;
+import com.momo.justicecenter.config.Config;
+import com.momo.justicecenter.config.ConfigManager;
+import com.momo.justicecenter.config.ResourceConfig;
 import com.momo.justicecenter.resource.ResResult;
 import com.momo.justicecenter.resource.ResourceManager;
 import com.momo.justicecenter.utils.FileHelper;
@@ -47,6 +50,25 @@ public class JusticeCenter {
         loadResource(bussiness, listener, sResourceManager);
     }
 
+    public static void preload(final String sceneID, final OnPreloadCallback listener) {
+        ConfigManager.getInstance().loadConfig(new ConfigManager.OnConfigLoadedListener() {
+            @Override
+            public void onConfigLoaded(Config resourceConfig) {
+                Set<String> sceneBusinesses = resourceConfig.getSceneBusinesses(sceneID);
+                MLogger.d(TAG, "onConfigLoaded，", sceneID, "对应business:", sceneBusinesses);
+                preload(sceneBusinesses, listener);
+            }
+
+            @Override
+            public void onConfigFailed(int code, String msg) {
+                MLogger.e(TAG, "onConfigFailed，", sceneID, msg);
+                if (listener != null) {
+                    listener.onFailed(code + msg);
+                }
+            }
+        });
+    }
+
     private static void loadResource(final Set<String> bussiness, final OnPreloadCallback listener, final ResourceManager sResourceManager) {
         sResourceManager.loadResource(bussiness, new ResourceManager.OnResourceLoadedListener() {
             @Override
@@ -82,6 +104,25 @@ public class JusticeCenter {
         });
     }
 
+    public static void asyncNewJustice(final String sceneID, final OnAsyncJusticeCallback callback) {
+        ConfigManager.getInstance().loadConfig(new ConfigManager.OnConfigLoadedListener() {
+            @Override
+            public void onConfigLoaded(Config resourceConfig) {
+                Set<String> sceneBusinesses = resourceConfig.getSceneBusinesses(sceneID);
+                MLogger.d(TAG, "onConfigLoaded，", sceneID, "对应business:", sceneBusinesses);
+                asyncNewJustice(sceneBusinesses, callback);
+            }
+
+            @Override
+            public void onConfigFailed(int code, String msg) {
+                MLogger.e(TAG, "onConfigFailed，", sceneID, msg);
+                if (callback != null) {
+                    callback.onFailed(code + msg);
+                }
+            }
+        });
+    }
+
     public static void asyncNewJustice(Set<String> bussiness, final OnAsyncJusticeCallback callback) {
         preload(bussiness, new OnPreloadCallback() {
             @Override
@@ -94,11 +135,18 @@ public class JusticeCenter {
                         File resource = FileHelper.getResource(entry.getKey(), null);
                         if (resource != null) {
                             successedBusiness.add(entry.getKey());
-                            businessesWithDirs.add(Pair.create(entry.getKey(), resource.getAbsolutePath())); // 色情识别
+                            businessesWithDirs.add(Pair.create(entry.getKey(), resource.getAbsolutePath()));
                         }
                     }
                 }
                 constuctAndCallback(businessesWithDirs, successedBusiness, callback);
+            }
+
+            @Override
+            public void onFailed(String msg) {
+                if (callback != null) {
+                    callback.onFailed(msg);
+                }
             }
         });
     }
@@ -125,5 +173,10 @@ public class JusticeCenter {
                 }
             }
         });
+    }
+
+    public static void clearCache() {
+        String rootPath = FileHelper.getRootPath();
+        FileHelper.deleteFiles(new File(rootPath));
     }
 }

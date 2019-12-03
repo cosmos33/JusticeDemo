@@ -2,23 +2,26 @@ package com.momo.justicecenter.config;
 
 public class ResourceConfig {
 
+
     /**
      * businessMark : AntiPorn
-     * guid : 6CE325CB-C661-6670-FC51-055C4E57EA1720191120
-     * materialVersion : 1
+     * guid : 38E27A5C-04E1-4274-2032-EAA0D6440F4320191126
+     * materialVersion : 15
      * md5 : ac277230c13fcc638d706773e1783700
+     * name : AntiPorn_resource
      * sha1 : e39cff131b434c01b7121c48c3a6a3de241e9fdb
      * sign : Ki2h7EDmOgLkDHBF86so8c99aiac/NHDE2gSofL5Uh0hsct/zYec1W9GoGpp7XvqVz6yT4/0j9FBAvLiXqK7ctI40+vM8lycc1p2qzEz51ObfhumhJ7rNu31NjYqMjnZ1vCGAOO3HhPSp6/3N05u9d+oXmePhI7BRABO0edWbI8=
      * size : 1945393
      * suffix : zip
-     * url : https://img.momocdn.com/cosmosmedia/6C/E3/6CE325CB-C661-6670-FC51-055C4E57EA1720191120.zip
-     * version : 1
+     * url : https://img.momocdn.com/cosmosmedia/38/E2/38E27A5C-04E1-4274-2032-EAA0D6440F4320191126.zip
+     * version : 2
      */
 
     private String businessMark;
     private String guid;
-    private String materialVersion;
+    private int materialVersion;
     private String md5;
+    private String name;
     private String sha1;
     private String sign;
     private int size;
@@ -42,11 +45,11 @@ public class ResourceConfig {
         this.guid = guid;
     }
 
-    public String getMaterialVersion() {
+    public int getMaterialVersion() {
         return materialVersion;
     }
 
-    public void setMaterialVersion(String materialVersion) {
+    public void setMaterialVersion(int materialVersion) {
         this.materialVersion = materialVersion;
     }
 
@@ -56,6 +59,14 @@ public class ResourceConfig {
 
     public void setMd5(String md5) {
         this.md5 = md5;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSha1() {
@@ -105,5 +116,4 @@ public class ResourceConfig {
     public void setVersion(String version) {
         this.version = version;
     }
-
 }

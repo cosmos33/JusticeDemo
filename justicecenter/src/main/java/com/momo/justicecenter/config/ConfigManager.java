@@ -4,12 +4,11 @@ import com.momo.justicecenter.network.JusticeRequest;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ConfigManager {
     private List<OnConfigLoadedListener> mOnConfigLoadedListeners = new ArrayList<>();
     private boolean isLoading;
-    private Map<String, Map<String, ResourceConfig>> mResourceConfig;
+    private Config mResourceConfig;
 
     private static class Holder {
         private static final ConfigManager RES_CONFIG_LOADER = new ConfigManager();
@@ -20,7 +19,7 @@ public class ConfigManager {
     }
 
     public synchronized boolean isConfigLoaded() {
-        return mResourceConfig != null && mResourceConfig.size() > 0;
+        return mResourceConfig != null;
     }
 
     public synchronized boolean isLoadingConfig() {
@@ -40,15 +39,13 @@ public class ConfigManager {
     }
 
     public synchronized void clearCache() {
-        if (mResourceConfig != null) {
-            mResourceConfig.clear();
-        }
+        mResourceConfig = null;
     }
 
     private void load() {
         JusticeRequest.getInstance().configRequst(new JusticeRequest.OnConfigRequestListener() {
             @Override
-            public void onSuccess(Map<String, Map<String, ResourceConfig>> config) {
+            public void onSuccess(Config config) {
                 successCallback(config);
             }
 
@@ -67,7 +64,7 @@ public class ConfigManager {
         isLoading = false;
     }
 
-    private synchronized void successCallback(Map<String, Map<String, ResourceConfig>> config) {
+    private synchronized void successCallback(Config config) {
         mResourceConfig = config;
         for (OnConfigLoadedListener onConfigLoadedListener : mOnConfigLoadedListeners) {
             onConfigLoadedListener.onConfigLoaded(mResourceConfig);
@@ -77,7 +74,7 @@ public class ConfigManager {
     }
 
     public interface OnConfigLoadedListener {
-        void onConfigLoaded(Map<String, Map<String, ResourceConfig>> resourceConfig);
+        void onConfigLoaded(Config resourceConfig);
 
         void onConfigFailed(int code, String msg);
     }

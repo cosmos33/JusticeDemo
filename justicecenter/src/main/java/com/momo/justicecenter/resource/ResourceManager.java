@@ -2,6 +2,7 @@ package com.momo.justicecenter.resource;
 
 import android.text.TextUtils;
 
+import com.momo.justicecenter.config.Config;
 import com.momo.justicecenter.config.ConfigManager;
 import com.momo.justicecenter.config.ErrorCode;
 import com.momo.justicecenter.config.ResourceConfig;
@@ -13,6 +14,7 @@ import com.momo.justicecenter.utils.ThreadHelper;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,6 +24,7 @@ public class ResourceManager {
     public static final int RETRY_TIME = 3;
     public static final int RETRY_DELAY = 2000;
     public int currentRetryTime = 0;
+
     public interface OnResourceLoadedListener {
         void onResourceLoadResult(Map<String, ResResult> result);
     }
@@ -32,7 +35,7 @@ public class ResourceManager {
         for (final String b : bussiness) {
             ConfigManager.getInstance().loadConfig(new ConfigManager.OnConfigLoadedListener() {
                 @Override
-                public void onConfigLoaded(final Map<String, Map<String, ResourceConfig>> resourceConfig) {
+                public void onConfigLoaded(Config resourceConfig) {
                     ResourceConfig config = getBestResourceConfig(b, resourceConfig);
                     if (config == null) {
                         configFailed(b, size, result, ErrorCode.CONFIG_ERROR, "config 为空", listener);
@@ -85,8 +88,8 @@ public class ResourceManager {
             markResult(size, result, bussiness, false, ErrorCode.CONFIG_ERROR, bussiness + " config 不完整", listener);
             return;
         }
-        final File destDir = FileHelper.getResource(bussiness, bestResourceConfig.getMaterialVersion());
-        File zipFile = FileHelper.getTempZipResource(bussiness, bestResourceConfig.getMaterialVersion());
+        final File destDir = FileHelper.getResource(bussiness, String.valueOf(bestResourceConfig.getMaterialVersion()));
+        File zipFile = FileHelper.getTempZipResource(bussiness, String.valueOf(bestResourceConfig.getMaterialVersion()));
         JusticeRequest.getInstance().download(url, zipFile.getPath(), new JusticeRequest.OnDownloadListener() {
             @Override
             public void onSuccess(final File file) {
@@ -155,20 +158,22 @@ public class ResourceManager {
 
     private synchronized boolean isLocalAvailable(String bussiness, ResourceConfig config) {
         if (config != null) {
-            return FileHelper.isResourceAvailable(bussiness, config.getMaterialVersion());
+            return FileHelper.isResourceAvailable(bussiness, String.valueOf(config.getMaterialVersion()));
         }
         return false;
     }
 
-    private ResourceConfig getBestResourceConfig(String bussiness, Map<String, Map<String, ResourceConfig>> resourceConfig) {
+    private ResourceConfig getBestResourceConfig(String bussiness, Config resourceConfig) {
         if (resourceConfig == null) {
             return null;
         }
-        Map<String, ResourceConfig> map = resourceConfig.get(bussiness);
-        if (map != null) {
-            for (Map.Entry<String, ResourceConfig> entry : map.entrySet()) {
-                return entry.getValue();
-            }
+        Map<String, List<ResourceConfig>> configMap = resourceConfig.getResourcesConfigs();
+        if (configMap == null) {
+            return null;
+        }
+        List<ResourceConfig> resourceConfigs = configMap.get(bussiness);
+        if (resourceConfigs != null && resourceConfigs.size() > 0) {
+            return resourceConfigs.get(0);
         }
         return null;
     }
