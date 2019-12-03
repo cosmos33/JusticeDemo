@@ -1,5 +1,8 @@
 package com.momo.justicecenter.config;
 
+import android.support.annotation.Keep;
+
+@Keep
 public class ResourceConfig {
 
 

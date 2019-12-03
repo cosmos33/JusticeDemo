@@ -1,5 +1,7 @@
 package com.momo.justicecenter.config;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class SceneConfig {
@@ -8,8 +10,9 @@ public class SceneConfig {
      * name : live
      * scene : ["AntiSpam","AntiPorn"]
      */
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("scene")
     private List<String> scene;
 
     public String getName() {
