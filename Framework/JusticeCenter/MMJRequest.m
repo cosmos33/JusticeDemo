@@ -83,11 +83,11 @@ static NSString *randomString(int len) {
     
     NSDictionary *resources = [dataDictionary mmj_dictionaryForKey:@"resources" defaultValue:@{}];
     NSMutableDictionary *resourcesDic = [NSMutableDictionary dictionaryWithCapacity:resources.count];
-    [resources enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSDictionary *obj, BOOL * _Nonnull stop) {
-        if (![obj isKindOfClass:NSDictionary.class]) {
+    [resources enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSArray *obj, BOOL * _Nonnull stop) {
+        if (![obj isKindOfClass:NSArray.class]) {
             return;
         }
-        NSDictionary *first = obj.allValues.firstObject;
+        NSDictionary *first = obj.firstObject;
         if (!first) {
             return;
         }
