@@ -48,4 +48,5 @@ ext{
     minVersion = 19
     targetVersion = 28
     supportVersion = "1.0.2"
+    justiceVersion ="1.0.0-20191204.1118"
 }
