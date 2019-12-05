@@ -214,7 +214,6 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
     NSMutableDictionary *resultsDic = [NSMutableDictionary dictionary];
     dispatch_group_t group = dispatch_group_create();
     for (MMJSceneId sceneId in sceneIds) {
-        dispatch_group_enter(group);
         NSArray<MMJBusinessType> *businessTypes = [self businessTypesForScenceId:sceneId];
         
         if (!businessTypes.count) {
@@ -223,10 +222,10 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
             dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER);
             [resultsDic setObject:resultInfo forKey:sceneId];
             dispatch_semaphore_signal(self.lock);
-            dispatch_group_leave(group);
             continue;
         }
         
+        dispatch_group_enter(group);
         __weak typeof(self) weak_self = self;
         [self checkAssetWithBusinessTypes:businessTypes completion:^(NSDictionary<MMJBusinessType,MMJResultInfo *> * _Nonnull rDic) {
             typeof(weak_self) strong_self = weak_self;

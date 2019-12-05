@@ -87,8 +87,9 @@ static NSString *randomString(int len) {
         if (![obj isKindOfClass:NSArray.class]) {
             return;
         }
+        
         NSDictionary *first = obj.firstObject;
-        if (!first) {
+        if (![first isKindOfClass:[NSDictionary class]]) {
             return;
         }
         

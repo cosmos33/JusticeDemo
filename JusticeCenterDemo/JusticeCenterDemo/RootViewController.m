@@ -71,7 +71,10 @@
 //        [self.ceateJusticeActivty stopAnimating];
 //        self.justice = justice;
 //    }];
+    CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
     [MMJusticeCenter asyncMakeJusticeWithSceneId:@"live" completion:^(Justice * _Nullable justice) {
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        NSLog(@"Linked in %f ms", linkTime *1000.0);
         [self.ceateJusticeActivty stopAnimating];
         self.justice = justice;
     }];

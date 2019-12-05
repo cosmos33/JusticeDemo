@@ -36,22 +36,6 @@
 #import "ZipArchive.h"
 #endif
 
-/// 全局文件操作锁
-static dispatch_semaphore_t file_processing_lock() {
-    static dispatch_semaphore_t mm_file_processing_lock;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        mm_file_processing_lock = dispatch_semaphore_create(1);
-    });
-    return mm_file_processing_lock;
-}
-
-static void file_safe_process(void(^block)(void)) {
-    dispatch_semaphore_wait(file_processing_lock(), DISPATCH_TIME_FOREVER);
-    block();
-    dispatch_semaphore_signal(file_processing_lock());
-}
-
 static NSString * const kMMJFileDomain = @"com.momo.justiceCenter";
 
 @implementation MMJFileManager
@@ -67,19 +51,11 @@ static NSString * const kMMJFileDomain = @"com.momo.justiceCenter";
 }
 
 + (BOOL)creatDirectoryIfNeetAtPath:(NSString *)path {
-    __block BOOL ret = YES;
-    file_safe_process(^{
-        ret = [self _creatDirectoryIfNeetAtPath:path];
-    });
-    return ret;
+    return [self _creatDirectoryIfNeetAtPath:path];
 }
 
 + (BOOL)removeFileIfNeetAtPath:(NSString *)path {
-    __block BOOL ret = YES;
-    file_safe_process(^{
-        ret = [self _removeFileIfNeetAtPath:path];
-    });
-    return ret;
+    return [self _removeFileIfNeetAtPath:path];
 }
 
 + (BOOL)unzipFileAtPath:(NSString *)path
@@ -87,38 +63,36 @@ static NSString * const kMMJFileDomain = @"com.momo.justiceCenter";
               overwrite:(BOOL)overwrite
                password:(NSString *)password
                   error:(NSError *__autoreleasing  _Nullable *)error {
-    __block BOOL ret = NO;
-    file_safe_process(^{
-        [[self class] _removeFileIfNeetAtPath:destination];
-        [[self class] _creatDirectoryIfNeetAtPath:destination];
+    BOOL ret = NO;
+    [[self class] _removeFileIfNeetAtPath:destination];
+    [[self class] _creatDirectoryIfNeetAtPath:destination];
 #if __has_include(<MMFoundation/MDZipArchive.h>)
-        MDZipArchive *zipArchive = [MDZipArchive new];
-        if ([zipArchive UnzipOpenFile:path Password:password]) {
-            ret = [zipArchive UnzipFileTo:destination overWrite:overwrite];
-            [zipArchive UnzipCloseFile];
-        }
-        if (!ret) {
-            *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
-            NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed");
-        }
+    MDZipArchive *zipArchive = [MDZipArchive new];
+    if ([zipArchive UnzipOpenFile:path Password:password]) {
+        ret = [zipArchive UnzipFileTo:destination overWrite:overwrite];
+        [zipArchive UnzipCloseFile];
+    }
+    if (!ret) {
+        *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
+        NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed");
+    }
 #elif __has_include("SSZipArchive.h")
-        ret = [SSZipArchive unzipFileAtPath:path toDestination:destination overwrite:overwrite password:password error:error];
-        if (!ret) {
-            NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed error:%@", *error);
-        }
+    ret = [SSZipArchive unzipFileAtPath:path toDestination:destination overwrite:overwrite password:password error:error];
+    if (!ret) {
+        NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed error:%@", *error);
+    }
 #else
-        ZipArchive *zipArchive = [ZipArchive new];
-        if ([zipArchive UnzipOpenFile:path Password:password]) {
-            ret = [zipArchive UnzipFileTo:destination overWrite:overwrite];
-            [zipArchive UnzipCloseFile];
-        }
-        if (!ret) {
-            *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
-            NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed");
-        }
+    ZipArchive *zipArchive = [ZipArchive new];
+    if ([zipArchive UnzipOpenFile:path Password:password]) {
+        ret = [zipArchive UnzipFileTo:destination overWrite:overwrite];
+        [zipArchive UnzipCloseFile];
+    }
+    if (!ret) {
+        *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
+        NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed");
+    }
 #endif
-        [[self class] _removeFileIfNeetAtPath:path];
-    });
+    [[self class] _removeFileIfNeetAtPath:path];
     return ret;
 }
 
@@ -128,11 +102,7 @@ static NSString * const kMMJFileDomain = @"com.momo.justiceCenter";
 }
 
 + (BOOL)isExistAssetWithType:(MMJBusinessType)type {
-    __block BOOL ret = YES;
-    file_safe_process(^{
-        ret = !![self _assetVersionStringWithType:type].length;
-    });
-    return ret;
+    return !![self _assetVersionStringWithType:type].length;
 }
 
 + (NSString *)businessDirectoryPathWithType:(MMJBusinessType)type {
@@ -140,19 +110,11 @@ static NSString * const kMMJFileDomain = @"com.momo.justiceCenter";
 }
 
 + (NSString *)assetPathWithType:(MMJBusinessType)type {
-    __block NSString *path = nil;
-    file_safe_process(^{
-        path = [self _assetPathWithType:type];
-    });
-    return path;
+    return [self _assetPathWithType:type];
 }
 
 + (NSString *)assetVersionStringWithType:(MMJBusinessType)type {
-    __block NSString *versionString = nil;
-    file_safe_process(^{
-        versionString = [self _assetVersionStringWithType:type];
-    });
-    return versionString;
+    return [self _assetVersionStringWithType:type];
 }
 
 + (BOOL)clearAllAssets {
