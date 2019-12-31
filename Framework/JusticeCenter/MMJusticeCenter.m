@@ -13,6 +13,17 @@
 
 static NSString * const kConfigRequestKey = @"Config_Request_Key";
 
+static void dispatch_process_async(dispatch_queue_t queue, dispatch_block_t block) {
+    if (!queue) {
+        block();
+    } else if (strcmp(dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL), dispatch_queue_get_label(queue)) == 0) {
+        block();
+    } else {
+        dispatch_async(queue, block);
+    }
+}
+
+
 @interface MMJusticeCenter ()
 
 @property (nonatomic, strong) MMJCenterConfig *centerConfig;
@@ -23,6 +34,8 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
 
 @property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableSet *> *requestResultCallbacks;
 @property (nonatomic, strong) NSMutableSet *requestsSet;
+
+@property (nonatomic, strong) NSCache *assetVersionCache;
 
 @end
 
@@ -80,6 +93,7 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
 - (BOOL)clearAllAssets {
     dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER);
     BOOL ret = [MMJFileManager clearAllAssets];
+    [self.assetVersionCache removeAllObjects];
     dispatch_semaphore_signal(self.lock);
     return ret;
 }
@@ -95,80 +109,153 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
         _lock = dispatch_semaphore_create(1);
         _requestResultCallbacks = [NSMutableDictionary dictionary];
         _requestsSet = [NSMutableSet set];
+        _assetVersionCache = [NSCache new];
+        _assetVersionCache.name = @"com.momo.justiceCenter.assetVersion";
     }
     return self;
 }
 
+#pragma mark - Public
 #pragma mark - 环境准备
 
 - (void)prepareWithBusinessTypes:(NSArray<MMJBusinessType> *)businessTypes completion:(nullable void (^)(NSDictionary<MMJBusinessType, MMJResultInfo *> * _Nonnull))completionBlock {
-    dispatch_async(self.processQueue, ^{
-        if (![self isExistAssetConfigs]) {
-            __weak typeof(self) weak_self = self;
-            [self fetchCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
-                typeof(weak_self) strong_self = weak_self;
-                [strong_self checkAssetWithBusinessTypes:businessTypes completion:completionBlock];
-            }];
-            return;
-        }
-        [self checkAssetWithBusinessTypes:businessTypes completion:completionBlock];
-    });
+    [self prepareWithBusinessTypes:businessTypes completionQueue:dispatch_get_main_queue() completion:completionBlock];
 }
 
 - (void)prepareWithSceneIds:(NSArray<MMJSceneId> *)sceneIds completion:(void (^)(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull))completionBlock {
-    dispatch_async(self.processQueue, ^{
-          if (![self isExistAssetConfigs]) {
-              __weak typeof(self) weak_self = self;
-              [self fetchCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
-                  typeof(weak_self) strong_self = weak_self;
-                  [strong_self checkAssetWithSceneIds:sceneIds completion:completionBlock];
-              }];
-              return;
-          }
-          [self checkAssetWithSceneIds:sceneIds completion:completionBlock];
-    });
+    [self prepareWithSceneIds:sceneIds completionQueue:dispatch_get_main_queue() completion:completionBlock];
 }
 
 - (void)prepareAllSupportedScenesWithCompletion:(void (^)(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull))completionBlock {
-    dispatch_async(self.processQueue, ^{
+    dispatch_process_async(self.processQueue, ^{
         if (![self isExistAssetConfigs]) {
             __weak typeof(self) weak_self = self;
-            [self fetchCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
+            [self requestCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
                 typeof(weak_self) strong_self = weak_self;
-                [strong_self checkAssetWithSceneIds:[strong_self allSupportedSceneIds] completion:completionBlock];
+                [strong_self checkAssetWithSceneIds:[strong_self allSupportedSceneIds]
+                                    completionQueue:dispatch_get_main_queue()
+                                         completion:completionBlock];
             }];
             return;
         }
-        [self checkAssetWithSceneIds:[self allSupportedSceneIds] completion:completionBlock];
+        [self checkAssetWithSceneIds:[self allSupportedSceneIds]
+                     completionQueue:dispatch_get_main_queue()
+                          completion:completionBlock];
     });
 }
 
 - (void)fetchCenterConfigWithCompletion:(nullable void (^)(BOOL, NSError * _Nullable))completionBlock {
-    [self setRequestResultCallback:completionBlock forRequestKey:kConfigRequestKey];
-    if ([self isRequestingForRequestKey:kConfigRequestKey]) {
-        return;
-    }
-    NSLog(@"[MMJusticeCenter] [LOG_LEVEL = NORMAL] Fetching Config");
-    NSString *appId = [self getAppId];
+    dispatch_process_async(self.processQueue, ^{
+        [self requestCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
+            if (completionBlock) {
+                dispatch_process_async(dispatch_get_main_queue(), ^{
+                    completionBlock(result, error);
+                });
+            }
+        }];
+    });
+}
+
+#pragma mark - 检测器构造方法
+- (void)asyncMakeJusticeWithBusinessTypes:(NSArray<MMJBusinessType> *)businessTypes completion:(void (^)(Justice * _Nullable))completionBlock {
     __weak typeof(self) weak_self = self;
-    [self.downloader requestConfigWithAppId:appId completion:^(NSDictionary * _Nullable resourcesConfig, NSDictionary * _Nullable sceneListsConfig, NSError * _Nullable error) {
+    [self prepareWithBusinessTypes:businessTypes
+                   completionQueue:self.processQueue
+                        completion:^(NSDictionary<MMJBusinessType,MMJResultInfo *> * _Nonnull resultsDic) {
         typeof(weak_self) strong_self = weak_self;
         
-        if (!error) {
-            dispatch_semaphore_wait(strong_self.lock, DISPATCH_TIME_FOREVER);
-            strong_self.centerConfig.resourceConfig = resourcesConfig;
-            strong_self.centerConfig.sceneListsConfig = sceneListsConfig;
-            dispatch_semaphore_signal(strong_self.lock);
+        Justice *jtObject = [strong_self _makeJusticeWithBusinessTypes:businessTypes];
+        
+        if (completionBlock) {
+            dispatch_process_async(dispatch_get_main_queue(), ^{
+                completionBlock(jtObject);
+            });
         }
-        [strong_self handleResult:!error error:error forRequestKey:kConfigRequestKey];
     }];
 }
 
-- (void)checkAssetWithBusinessTypes:(NSArray<MMJBusinessType> *)businessTypes completion:(nullable void (^)(NSDictionary<MMJBusinessType, MMJResultInfo *> * _Nonnull))completionBlock {
+- (void)asyncMakeJusticeWithSceneId:(MMJSceneId)sceneId completion:(void (^)(Justice * _Nullable))completionBlock {
+    if (!sceneId) {
+        if (completionBlock) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionBlock(nil);
+            });
+        }
+        return;
+    }
+    __weak typeof(self) weak_self = self;
+    [self prepareWithSceneIds:@[sceneId]
+              completionQueue:self.processQueue
+                   completion:^(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull resultsDic) {
+        typeof(weak_self) strong_self = weak_self;
+        NSArray<MMJBusinessType> *businessTypes = [self businessTypesForScenceId:sceneId];
+        if (!businessTypes.count) {
+            if (completionBlock) {
+                dispatch_process_async(dispatch_get_main_queue(), ^{
+                    completionBlock(nil);
+                });
+            }
+            return;
+        }
+        
+        Justice *jtObject = [strong_self _makeJusticeWithBusinessTypes:businessTypes];
+        
+        if (completionBlock) {
+            dispatch_process_async(dispatch_get_main_queue(), ^{
+                completionBlock(jtObject);
+            });
+        }
+    }];
+}
+
+#pragma mark - Private
+- (void)prepareWithBusinessTypes:(NSArray<MMJBusinessType> *)businessTypes
+                 completionQueue:(dispatch_queue_t)completionQueue
+                      completion:(nullable void (^)(NSDictionary<MMJBusinessType, MMJResultInfo *> * _Nonnull))completionBlock {
+    dispatch_process_async(self.processQueue, ^{
+        if (![self isExistAssetConfigs]) {
+            __weak typeof(self) weak_self = self;
+            [self requestCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
+                typeof(weak_self) strong_self = weak_self;
+                [strong_self checkAssetWithBusinessTypes:businessTypes
+                                         completionQueue:completionQueue
+                                              completion:completionBlock];
+            }];
+            return;
+        }
+        [self checkAssetWithBusinessTypes:businessTypes
+                          completionQueue:completionQueue
+                               completion:completionBlock];
+    });
+}
+
+- (void)prepareWithSceneIds:(NSArray<MMJSceneId> *)sceneIds
+            completionQueue:(dispatch_queue_t)completionQueue
+                 completion:(void (^)(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull))completionBlock {
+    dispatch_process_async(self.processQueue, ^{
+          if (![self isExistAssetConfigs]) {
+              __weak typeof(self) weak_self = self;
+              [self requestCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
+                  typeof(weak_self) strong_self = weak_self;
+                  [strong_self checkAssetWithSceneIds:sceneIds
+                                      completionQueue:completionQueue
+                                           completion:completionBlock];
+              }];
+              return;
+          }
+          [self checkAssetWithSceneIds:sceneIds
+                       completionQueue:completionQueue
+                            completion:completionBlock];
+    });
+}
+
+- (void)checkAssetWithBusinessTypes:(NSArray<MMJBusinessType> *)businessTypes
+                    completionQueue:(dispatch_queue_t)completionQueue
+                         completion:(nullable void (^)(NSDictionary<MMJBusinessType, MMJResultInfo *> * _Nonnull))completionBlock {
     
     if (!businessTypes.count) {
         if (completionBlock) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_process_async(completionQueue, ^{
                 completionBlock(@{});
             });
         }
@@ -183,7 +270,7 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
         [self checkAssetWithType:type completion:^(BOOL result, NSError * _Nullable error) {
             typeof(weak_self) strong_self = weak_self;
             
-            NSString *localVersion = [MMJFileManager assetVersionStringWithType:type];
+            NSString *localVersion = [self assetVersionStringWithType:type];
             BOOL t_result = !!localVersion.length; // 只要本地有缓存就算准备成功
             MMJResultInfo *resultInfo = [MMJResultInfo resultInfoWithResult:t_result error:error defultCode:MMJErrorCodeDownloadFailed];
             dispatch_semaphore_wait(strong_self.lock, DISPATCH_TIME_FOREVER);
@@ -193,18 +280,20 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
         }];
     }
     
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    dispatch_group_notify(group, completionQueue, ^{
         if (completionBlock) {
             completionBlock(resultsDic);
         }
     });
 }
 
-- (void)checkAssetWithSceneIds:(NSArray<MMJSceneId> *)sceneIds completion:(void (^)(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull))completionBlock {
+- (void)checkAssetWithSceneIds:(NSArray<MMJSceneId> *)sceneIds
+               completionQueue:(dispatch_queue_t)completionQueue
+                    completion:(void (^)(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull))completionBlock {
     
     if (!sceneIds.count) {
         if (completionBlock) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_process_async(completionQueue, ^{
                 completionBlock(@{});
             });
         }
@@ -227,7 +316,9 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
         
         dispatch_group_enter(group);
         __weak typeof(self) weak_self = self;
-        [self checkAssetWithBusinessTypes:businessTypes completion:^(NSDictionary<MMJBusinessType,MMJResultInfo *> * _Nonnull rDic) {
+        [self checkAssetWithBusinessTypes:businessTypes
+                          completionQueue:self.processQueue
+                               completion:^(NSDictionary<MMJBusinessType,MMJResultInfo *> * _Nonnull rDic) {
             typeof(weak_self) strong_self = weak_self;
             __block BOOL t_result = YES;
             __block MMJErrorCode errorCode = 0;
@@ -247,7 +338,7 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
         }];
     }
     
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    dispatch_group_notify(group, completionQueue, ^{
         if (completionBlock) {
             completionBlock(resultsDic);
         }
@@ -267,7 +358,7 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
         return;
     }
     
-    NSString *localVersion = [MMJFileManager assetVersionStringWithType:type];
+    NSString *localVersion = [self assetVersionStringWithType:type];
     NSString *originVersion = assetConfig.materialVersion;
     if (!localVersion.length
         || (originVersion.integerValue > localVersion.integerValue)) {
@@ -294,6 +385,7 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
         typeof(weak_self) strong_self = weak_self;
         if (result && localVersion.length) {
             // 下载成功再移除旧版本
+            [strong_self removeAssetVersionWithType:assetConfig.businessMark];
             NSString *oldVersionPath = [MMJFileManager appendAssetPathWithType:assetConfig.businessMark version:localVersion];
             [MMJFileManager removeFileIfNeetAtPath:oldVersionPath];
         }
@@ -301,55 +393,24 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
     }];
 }
 
-#pragma mark - 检测器构造方法
-- (void)asyncMakeJusticeWithBusinessTypes:(NSArray<MMJBusinessType> *)businessTypes completion:(void (^)(Justice * _Nullable))completionBlock {
-    __weak typeof(self) weak_self = self;
-    [self prepareWithBusinessTypes:businessTypes completion:^(NSDictionary<MMJBusinessType,MMJResultInfo *> * _Nonnull resultsDic) {
-        typeof(weak_self) strong_self = weak_self;
-        dispatch_async(strong_self.processQueue, ^{
-            
-            Justice *jtObject = [strong_self _makeJusticeWithBusinessTypes:businessTypes];
-            
-            if (completionBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completionBlock(jtObject);
-                });
-            }
-        });
-    }];
-}
-
-- (void)asyncMakeJusticeWithSceneId:(MMJSceneId)sceneId completion:(void (^)(Justice * _Nullable))completionBlock {
-    if (!sceneId) {
-        if (completionBlock) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completionBlock(nil);
-            });
-        }
+- (void)requestCenterConfigWithCompletion:(nullable void (^)(BOOL, NSError * _Nullable))completionBlock {
+    [self setRequestResultCallback:completionBlock forRequestKey:kConfigRequestKey];
+    if ([self isRequestingForRequestKey:kConfigRequestKey]) {
         return;
     }
+    NSLog(@"[MMJusticeCenter] [LOG_LEVEL = NORMAL] Fetching Config");
+    NSString *appId = [self getAppId];
     __weak typeof(self) weak_self = self;
-    [self prepareWithSceneIds:@[sceneId] completion:^(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull resultsDic) {
+    [self.downloader requestConfigWithAppId:appId completion:^(NSDictionary * _Nullable resourcesConfig, NSDictionary * _Nullable sceneListsConfig, NSError * _Nullable error) {
         typeof(weak_self) strong_self = weak_self;
-        dispatch_async(strong_self.processQueue, ^{
-            NSArray<MMJBusinessType> *businessTypes = [self businessTypesForScenceId:sceneId];
-            if (!businessTypes.count) {
-                if (completionBlock) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completionBlock(nil);
-                    });
-                }
-                return;
-            }
-         
-            Justice *jtObject = [strong_self _makeJusticeWithBusinessTypes:businessTypes];
-            
-            if (completionBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completionBlock(jtObject);
-                });
-            }
-        });
+        
+        if (!error) {
+            dispatch_semaphore_wait(strong_self.lock, DISPATCH_TIME_FOREVER);
+            strong_self.centerConfig.resourceConfig = resourcesConfig;
+            strong_self.centerConfig.sceneListsConfig = sceneListsConfig;
+            dispatch_semaphore_signal(strong_self.lock);
+        }
+        [strong_self handleResult:!error error:error forRequestKey:kConfigRequestKey];
     }];
 }
 
@@ -459,6 +520,28 @@ static NSString * const kConfigRequestKey = @"Config_Request_Key";
             });
         }];
     }
+}
+
+- (NSString *)assetVersionStringWithType:(MMJBusinessType)type {
+    dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER);
+    NSString *version = [self.assetVersionCache objectForKey:type];
+    dispatch_semaphore_signal(self.lock);
+    if (version) {
+        return version;
+    }
+    version = [MMJFileManager assetVersionStringWithType:type];
+    if (version) {
+        dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER);
+        [self.assetVersionCache setObject:version forKey:type];
+        dispatch_semaphore_signal(self.lock);
+    }
+    return version;
+}
+
+- (void)removeAssetVersionWithType:(MMJBusinessType)type {
+    dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER);
+    [self.assetVersionCache removeObjectForKey:type];
+    dispatch_semaphore_signal(self.lock);
 }
 
 @end

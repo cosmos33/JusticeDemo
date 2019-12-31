@@ -13,13 +13,23 @@
 #import <MMWebUploader/MMWebUploader-umbrella.h>
 #import <GCDWebServer/GCDWebServer-umbrella.h>
 
+
+#define MMJLog(str, ...) [self printLog:str, ##__VA_ARGS__]
+
 @interface RootViewController () <MMWebUploaderDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *businessIdList;
+@property (weak, nonatomic) IBOutlet UITextField *businessId;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (weak, nonatomic) IBOutlet UITextView *outputView;
 @property (weak, nonatomic) IBOutlet UILabel *webLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *ceateJusticeActivty;
 
+@property (nonatomic, strong) NSString *secenId;
 @property (nonatomic, strong) MMWebUploader *uploader;
 @property (nonatomic, strong) Justice *justice;
+
+@property (nullable, strong) NSMutableString *outputString;
 
 @end
 
@@ -35,9 +45,8 @@
     self.uploader.allowHiddenItems = YES;
     self.webLabel.text = [NSString stringWithFormat:@"WEB: %@",GCDWebServerGetPrimaryIPAddress(NO)];
     
+    self.outputString = [NSMutableString string];
     [MMJusticeCenter configureAppId:@"ed908f89453ca1793dc7da5fb32e1b30"];
-    
-
 }
 
 #pragma mark - UIAction
@@ -54,35 +63,63 @@
 }
 
 - (void)prepareJusticeCenter {
-//    [MMJusticeCenter prepareWithBusinessTypes:@[] completion:^(NSDictionary<MMJBusinessType,MMJResultInfo *> * _Nonnull resultsDic) {
-//        NSLog(@"resultsDic %@", resultsDic);
-//    }];
+    NSString *listStr = self.businessIdList.text;
+    if (!listStr.length) {
+        MMJLog(@"请输入预加载业务场景列表");
+        return;
+    }
+    
+    NSArray *listArray = [listStr componentsSeparatedByString:@","];
+    
+    if (!listArray.count) {
+        MMJLog(@"请输入预加载业务场景列表");
+        return;
+    }
+    [self.ceateJusticeActivty startAnimating];
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+    [MMJusticeCenter prepareWithSceneIds:listArray completion:^(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull resultsDic) {
+        [self.ceateJusticeActivty stopAnimating];
+        for (NSString *sceneId in listArray) {
+            MMJResultInfo *result = resultsDic[sceneId];
+            if (result) {
+                MMJLog(@"%@: result %d errorCode %ld", sceneId, result.result, (long)result.errorCode);
+            }
+        };
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        MMJLog(@"请求耗时 %lf ms", linkTime * 1000);
+    }];
 //    [MMJusticeCenter prepareWithSceneIds:@[@"live",@"chat"] completion:^(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull resultsDic) {
 //        NSLog(@"resultsDic %@", resultsDic);
 //    }];
-    [MMJusticeCenter prepareAllSupportedScenesWithCompletion:^(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull resultsDic) {
-        NSLog(@"resultsDic %@", resultsDic);
-    }];
+//    [MMJusticeCenter prepareAllSupportedScenesWithCompletion:^(NSDictionary<MMJSceneId,MMJResultInfo *> * _Nonnull resultsDic) {
+//        NSLog(@"resultsDic %@", resultsDic);
+//    }];
 }
 
 - (void)createJustice {
+    NSString *text = self.businessId.text;
+    if (!text.length) {
+        MMJLog(@"请输入预加载业务场景");
+        return;
+    }
     [self.ceateJusticeActivty startAnimating];
-//    [MMJusticeCenter asyncMakeJusticeWithBusinessTypes:@[@"AntiSpam", @"AntiPorn"] completion:^(Justice * _Nullable justice) {
-//        [self.ceateJusticeActivty stopAnimating];
-//        self.justice = justice;
-//    }];
     CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
-    [MMJusticeCenter asyncMakeJusticeWithSceneId:@"live" completion:^(Justice * _Nullable justice) {
+    [MMJusticeCenter asyncMakeJusticeWithSceneId:text completion:^(Justice * _Nullable justice) {
         CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-        NSLog(@"Linked in %f ms", linkTime *1000.0);
+        MMJLog(@"创建 Justice 耗时 %f ms", linkTime *1000.0);
         [self.ceateJusticeActivty stopAnimating];
-        self.justice = justice;
+        if (justice) {
+            self.justice = justice;
+            [self openImagePicker];
+        } else {
+            MMJLog(@"创建 Justice 失败");
+        }
     }];
 }
 
 - (void)openImagePicker {
     if (!self.justice) {
-        NSLog(@"请先构建 Justice");
+        MMJLog(@"请先构建 Justice");
         return;
     }
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
@@ -103,7 +140,7 @@
 - (void)clearLocalAssets {
     _justice = nil;
     BOOL ret = [MMJusticeCenter clearAllAssets];
-    NSLog(@"==========清空 ret %d ===========", ret);
+    MMJLog(@"==========清空 ret %d ===========", ret);
 }
 
 - (void)presentResultAlertWithTitle:(NSString *)title message:(NSString *)message {
@@ -113,20 +150,51 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)fetchCenterConfig {
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+    [MMJusticeCenter fetchCenterConfigWithCompletion:^(BOOL result, NSError * _Nullable error) {
+        if (result) {
+            NSArray *list = [MMJusticeCenter allSupportedSceneIds];
+            NSString *tip = [list componentsJoinedByString:@","];
+            self.tipLabel.text = tip;
+        }
+        MMJLog(@"更新结果：%d", result);
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        MMJLog(@"请求耗时 %lf ms", linkTime * 1000);
+    }];
+}
+
+- (void)printLog:(NSString *)format, ...  {
+    if (format) {
+        NSString *dateStr = [NSDate date].description;
+        va_list args;
+        va_start(args, format);
+        NSString *log = [[NSString alloc] initWithFormat:format arguments:args];
+        va_end(args);
+        [self.outputString appendFormat:@"%@: %@\n", dateStr, log];
+        self.outputView.text = self.outputString;
+    }
+}
+
+- (IBAction)clearLog:(id)sender {
+    self.outputString = [NSMutableString string];
+    self.outputView.text = nil;
+}
 #pragma mark - 测试代码
 - (void)testAction {
-    NSLog(@"==========开始测试===========");
-    for (int i = 0; i < 5000; ++ i) {
-        NSLog(@"调用次数 %d", i + 1);
-        [MMJusticeCenter prepareWithBusinessTypes:@[@"AntiSpam", @"AntiPorn"] completion:^(NSDictionary<MMJBusinessType,NSNumber *> * _Nonnull resultsDic) {
-            NSLog(@"=====请求1 结果，次序 %d=====", i + 1);
-            NSLog(@"resultsDic %@", resultsDic);
-        }];
-        [MMJusticeCenter prepareWithBusinessTypes:@[@"AntiPorn", @"spam_4"] completion:^(NSDictionary<MMJBusinessType,NSNumber *> * _Nonnull resultsDic) {
-            NSLog(@"=====请求2 结果，次序 %d=====", i + 1);
-            NSLog(@"resultsDic %@", resultsDic);
-        }];
-    }
+    MMJLog(@"==========开始测试===========");
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        for (int i = 0; i < 200; ++ i) {
+            [MMJusticeCenter prepareWithBusinessTypes:@[@"AntiSpam", @"AntiPorn"] completion:^(NSDictionary<MMJBusinessType,NSNumber *> * _Nonnull resultsDic) {
+                MMJLog(@"=====请求1 结果，次序 %d=====", i + 1);
+                MMJLog(@"resultsDic %@", resultsDic);
+            }];
+            [MMJusticeCenter prepareWithBusinessTypes:@[@"AntiPorn", @"spam_4"] completion:^(NSDictionary<MMJBusinessType,NSNumber *> * _Nonnull resultsDic) {
+                MMJLog(@"=====请求2 结果，次序 %d=====", i + 1);
+                MMJLog(@"resultsDic %@", resultsDic);
+            }];
+        }
+    });
 }
 
 
@@ -142,25 +210,30 @@
     }
     
     NSString *result = [self.justice predict:image];
-    [self presentResultAlertWithTitle:@"识别结果" message:result];
+//    [self presentResultAlertWithTitle:@"识别结果" message:result];
+    MMJLog(result);
 }
 
 #pragma mark - UITableViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [self.view endEditing:YES];
     if (indexPath.section == 0) {
         switch (indexPath.row) {
-            case 0:
+            case 1:
                 [self prepareJusticeCenter];
                 break;
                 
-            case 1:
+            case 3:
                 [self createJustice];
                 break;
                 
-            case 2:
-                [self openImagePicker];
+            case 4:
+                [self fetchCenterConfig];
                 break;
                 
             default:
