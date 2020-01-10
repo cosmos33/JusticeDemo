@@ -73,7 +73,9 @@ static NSString * const kMMJFileDomain = @"com.momo.justiceCenter";
         [zipArchive UnzipCloseFile];
     }
     if (!ret) {
-        *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
+        if (error) {
+            *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
+        }
         NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed");
     }
 #elif __has_include("SSZipArchive.h")
@@ -88,7 +90,9 @@ static NSString * const kMMJFileDomain = @"com.momo.justiceCenter";
         [zipArchive UnzipCloseFile];
     }
     if (!ret) {
-        *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
+        if (error) {
+            *error = [NSError errorWithDomain:@"ZipArchiveErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"failed to unzip file"}];
+        }
         NSLog(@"[MMJusticeCenter] [LOG_LEVEL = ERROR] unzip file failed");
     }
 #endif
