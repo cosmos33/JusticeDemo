@@ -2,7 +2,6 @@ package com.momo.justicedemo;
 
 import android.Manifest;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,12 +22,12 @@ import com.momo.justicecenter.callback.OnPreloadCallback;
 import com.momo.justicecenter.resource.ResResult;
 import com.momo.justicecenter.utils.MLogger;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity...";
     private static final int RC_CHOOSE_PHOTO = 1;
-    private String mCurrentSceneID;
+    private Set<String> mCurrentSceneIDs;
     private TextView mImgPathTV;
     private TextView mLogTV;
     private TextView mBusinessIDTV;
@@ -67,17 +66,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadResourceByScene(View view) {
-        getCurrentSceneID();
-        if (TextUtils.isEmpty(mCurrentSceneID)) {
+        getCurrentSceneIDs();
+        if (mCurrentSceneIDs.isEmpty()) {
             toast("场景id不可以为空");
             return;
         }
-        JusticeCenter.preload(mCurrentSceneID, new OnPreloadCallback() {
+        JusticeCenter.preloadByScenes(mCurrentSceneIDs, new OnPreloadCallback() {
             @Override
             public void onPreloadCallback(Map<String, ResResult> resultMap) {
                 MLogger.d(TAG, "success", resultMap);
                 StringBuilder sb = new StringBuilder();
-                sb.append("场景类型").append(mCurrentSceneID).append(" preload结果：");
+                sb.append("场景类型").append(mCurrentSceneIDs).append(" preload结果：");
                 for (Map.Entry<String, ResResult> stringResResultEntry : resultMap.entrySet()) {
                     sb.append(stringResResultEntry.getKey())
                             .append(":")
@@ -90,18 +89,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailed(String msg) {
                 MLogger.d(TAG, "onFailed", msg);
-                addToLogText("场景类型" + mCurrentSceneID + "预加载失败：" + msg);
+                addToLogText("场景类型" + mCurrentSceneIDs + "预加载失败：" + msg);
 
             }
         });
     }
 
-    private String getCurrentSceneID() {
+    private void getCurrentSceneIDs() {
         EditText et = findViewById(R.id.edit_text_type_id);
         final String text = et.getText().toString();
-
-        mCurrentSceneID = text;
-        return text;
+            mCurrentSceneIDs = new HashSet<>();
+        if (!TextUtils.isEmpty(text)) {
+            mCurrentSceneIDs.addAll(Arrays.asList(text.split(",")));
+        }
     }
 
     private void addToLogText(final String msg) {
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             toast("业务类型输入格式有误");
             return;
         }
-        JusticeCenter.preload(businesses, new OnPreloadCallback() {
+        JusticeCenter.preloadByBusinesses(businesses, new OnPreloadCallback() {
             @Override
             public void onPreloadCallback(Map<String, ResResult> resultMap) {
                 StringBuilder sb = new StringBuilder();
@@ -233,16 +233,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void processDetectIMG(final String realPathFromUri) {
         mImgPathTV.setText(realPathFromUri);
-        getCurrentSceneID();
-        if (TextUtils.isEmpty(mCurrentSceneID)) {
+        getCurrentSceneIDs();
+        if ( mCurrentSceneIDs.isEmpty()) {
             toast("场景id不可为空");
             return;
         }
-        JusticeCenter.asyncNewJustice(mCurrentSceneID, new OnAsyncJusticeCallback() {
+        JusticeCenter.asyncNewJusticeBySceneIDs(mCurrentSceneIDs, new OnAsyncJusticeCallback() {
             @Override
             public void onCreated(Justice justice, List<String> successBusiness) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(mCurrentSceneID).append(" 创建成功的业务类型有：");
+                sb.append(mCurrentSceneIDs).append(" 创建成功的业务类型有：");
                 for (String business : successBusiness) {
                     sb.append(business).append(" ");
                 }

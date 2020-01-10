@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/text_type_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="场景类型："
+        android:text="场景类型：多场景用','分隔"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_text_type_id"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:text="live"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/button2"
@@ -44,7 +45,7 @@
     <EditText
         android:id="@+id/edit_text_type_id2"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:text="AntiSpam,AntiPorn"
         app:layout_constraintEnd_toEndOf="@+id/edit_text_type_id"
         app:layout_constraintLeft_toLeftOf="parent"

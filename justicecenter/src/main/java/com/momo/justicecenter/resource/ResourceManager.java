@@ -33,6 +33,9 @@ public class ResourceManager {
         final Map<String, ResResult> result = new HashMap<>();
         final int size = bussiness.size();
         for (final String b : bussiness) {
+            if (TextUtils.isEmpty(b)) {
+                continue;
+            }
             ConfigManager.getInstance().loadConfig(new ConfigManager.OnConfigLoadedListener() {
                 @Override
                 public void onConfigLoaded(Config resourceConfig) {
